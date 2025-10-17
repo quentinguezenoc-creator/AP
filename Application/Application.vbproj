@@ -37,8 +37,14 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
     <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
     <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
@@ -67,7 +73,37 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <!-- My Project -->
+    <Compile Include="GestionCompteRendu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include=".Designer.vb">
+      <DependentUpon>GestionCompteRendu.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsulterCompteRendu.Designer.vb">
+      <DependentUpon>ConsulterCompteRendu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ConsulterCompteRendu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsulterActiviteVisiteur.Designer.vb">
+      <DependentUpon>ConsulterActiviteVisiteur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ConsulterActiviteVisiteur.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsulterActiviteEquipe.Designer.vb">
+      <DependentUpon>ConsulterActiviteEquipe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ConsulterActiviteEquipe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListeEquipe.Designer.vb">
+      <DependentUpon>ListeEquipe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListeEquipe.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -86,6 +122,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ConsulterActiviteEquipe.resx">
+      <DependentUpon>ConsulterActiviteEquipe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsulterActiviteVisiteur.resx">
+      <DependentUpon>ConsulterActiviteVisiteur.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsulterCompteRendu.resx">
+      <DependentUpon>ConsulterCompteRendu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListeEquipe.resx">
+      <DependentUpon>ListeEquipe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionCompteRendu.resx">
+      <DependentUpon>GestionCompteRendu.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -94,7 +145,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <!-- Fichiers None -->
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -104,6 +154,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
