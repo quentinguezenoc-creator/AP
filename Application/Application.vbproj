@@ -15,6 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +26,7 @@
     <DocumentationFile>Application.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
@@ -35,18 +37,14 @@
     <DocumentationFile>Application.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
+
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
-  </PropertyGroup>
-  <PropertyGroup>
     <OptionCompare>Binary</OptionCompare>
-  </PropertyGroup>
-  <PropertyGroup>
     <OptionStrict>Off</OptionStrict>
-  </PropertyGroup>
-  <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -59,6 +57,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
   </ItemGroup>
+
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
@@ -72,36 +71,22 @@
     <Import Include="System.Xml.Linq" />
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="ConsulterActiviteEquipe.Designer.vb">
-      <DependentUpon>ConsulterActiviteEquipe.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ConsulterActiviteEquipe.vb">
+    <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsulterActiviteVisiteur.Designer.vb">
-      <DependentUpon>ConsulterActiviteVisiteur.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ConsulterActiviteVisiteur.vb">
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsulterCompteRendu.Designer.vb">
-      <DependentUpon>ConsulterCompteRendu.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ConsulterCompteRendu.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestionCompteRendu.vb" />
-    <Compile Include="ListeEquipe.Designer.vb">
-      <DependentUpon>ListeEquipe.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ListeEquipe.vb">
-      <SubType>Form</SubType>
-    </Compile>
+
+    <!-- My Project -->
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -114,22 +99,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+
   <ItemGroup>
-    <EmbeddedResource Include="ConsulterActiviteEquipe.resx">
-      <DependentUpon>ConsulterActiviteEquipe.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsulterActiviteVisiteur.resx">
-      <DependentUpon>ConsulterActiviteVisiteur.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsulterCompteRendu.resx">
-      <DependentUpon>ConsulterCompteRendu.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestionCompteRendu.resx">
-      <DependentUpon>GestionCompteRendu.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ListeEquipe.resx">
-      <DependentUpon>ListeEquipe.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -137,7 +108,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+
   <ItemGroup>
+    <!-- Fichiers None -->
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -149,6 +122,5 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
