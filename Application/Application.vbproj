@@ -73,35 +73,35 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GestionCompteRendu.vb">
+    <Compile Include="src\GestionCompteRendu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.vb">
+    <Compile Include="src\GestionCompteRendu.Designer.vb">
       <DependentUpon>GestionCompteRendu.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsulterCompteRendu.Designer.vb">
-      <DependentUpon>ConsulterCompteRendu.vb</DependentUpon>
+    <Compile Include="src\ConsulterCompteRendu.Designer.vb">
+      <DependentUpon>src\ConsulterCompteRendu.vb</DependentUpon>
     </Compile>
-    <Compile Include="ConsulterCompteRendu.vb">
+    <Compile Include="src\ConsulterCompteRendu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsulterActiviteVisiteur.Designer.vb">
-      <DependentUpon>ConsulterActiviteVisiteur.vb</DependentUpon>
+    <Compile Include="src\ConsulterActiviteVisiteur.Designer.vb">
+      <DependentUpon>src\ConsulterActiviteVisiteur.vb</DependentUpon>
     </Compile>
-    <Compile Include="ConsulterActiviteVisiteur.vb">
+    <Compile Include="src\ConsulterActiviteVisiteur.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsulterActiviteEquipe.Designer.vb">
-      <DependentUpon>ConsulterActiviteEquipe.vb</DependentUpon>
+    <Compile Include="src\ConsulterActiviteEquipe.Designer.vb">
+      <DependentUpon>src\ConsulterActiviteEquipe.vb</DependentUpon>
     </Compile>
-    <Compile Include="ConsulterActiviteEquipe.vb">
+    <Compile Include="src\ConsulterActiviteEquipe.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListeEquipe.Designer.vb">
-      <DependentUpon>ListeEquipe.vb</DependentUpon>
+    <Compile Include="src\ListeEquipe.Designer.vb">
+      <DependentUpon>src\ListeEquipe.vb</DependentUpon>
     </Compile>
-    <Compile Include="ListeEquipe.vb">
+    <Compile Include="src\ListeEquipe.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
