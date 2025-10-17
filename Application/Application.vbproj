@@ -122,20 +122,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ConsulterActiviteEquipe.resx">
-      <DependentUpon>ConsulterActiviteEquipe.vb</DependentUpon>
+    <EmbeddedResource Include="src\ConsulterActiviteEquipe.resx">
+      <DependentUpon>src\ConsulterActiviteEquipe.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsulterActiviteVisiteur.resx">
-      <DependentUpon>ConsulterActiviteVisiteur.vb</DependentUpon>
+    <EmbeddedResource Include="src\ConsulterActiviteVisiteur.resx">
+      <DependentUpon>src\ConsulterActiviteVisiteur.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsulterCompteRendu.resx">
-      <DependentUpon>ConsulterCompteRendu.vb</DependentUpon>
+    <EmbeddedResource Include="src\ConsulterCompteRendu.resx">
+      <DependentUpon>src\ConsulterCompteRendu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListeEquipe.resx">
-      <DependentUpon>ListeEquipe.vb</DependentUpon>
+    <EmbeddedResource Include="src\ListeEquipe.resx">
+      <DependentUpon>src\ListeEquipe.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestionCompteRendu.resx">
-      <DependentUpon>GestionCompteRendu.vb</DependentUpon>
+    <EmbeddedResource Include="src\GestionCompteRendu.resx">
+      <DependentUpon>src\GestionCompteRendu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
