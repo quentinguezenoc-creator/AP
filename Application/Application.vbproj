@@ -68,6 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Formulaires -->
+    <Compile Include="src\Connexion.Designer.vb">
+      <DependentUpon>Connexion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="src\Connexion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="src\GestionCompte.vb">
       <SubType>Form</SubType>
     </Compile>
