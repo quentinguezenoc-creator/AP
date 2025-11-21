@@ -17,4 +17,9 @@
         DataGridView_Praticien.Visible = True
         DataGridView_Motif.Visible = True
     End Sub
+
+    Private Sub DataGridView_Visiteur_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_Visiteur.CellContentClick
+        Dim fenetre As New ConsulterActiviteVisiteur
+        fenetre.Show()
+    End Sub
 End Class
