@@ -129,6 +129,9 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Ressources -->
+    <EmbeddedResource Include="src\Connexion.resx">
+      <DependentUpon>Connexion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\GestionCompte.resx">
       <DependentUpon>GestionCompte.vb</DependentUpon>
     </EmbeddedResource>

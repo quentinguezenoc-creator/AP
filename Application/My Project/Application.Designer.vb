@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Application.ListeEquipe
+            Me.MainForm = Global.Application.Connexion
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
