@@ -26,11 +26,7 @@ Public Class Connexion
     End Sub
 
     Private Sub Connexion_Click(sender As Object, e As EventArgs) Handles Button_Connexion.Click
-        Dim connString = "DSN=SRVORAGSB;Uid=gestion;Pwd=Iroise29;" ' Chaine de connexion à la base de données
-        myConnection.ConnectionString = connString
         Try
-            ' Connexion à la base de données
-            myConnection.Open()
             ' Requête qui récupère tous les matricules
             Dim queryMat As String = "SELECT matricule FROM Utilisateur;"
             myCommandUtil.Connection = myConnection
@@ -40,11 +36,11 @@ Public Class Connexion
             While myReaderUtil.Read
                 If myReaderUtil.GetString(0) = TextBox_Login.Text Then
                     ' Requête qui récupère le mot de passe de l'utilisateur
-                    Dim queryMdp As String = "SELECT motDePasse FROM Utilisateur WHERE matricule=@matricule;" ' @matricule pour éviter les injections SQL
+                    Dim queryMdp As String = "SELECT motDePasse FROM Utilisateur WHERE matricule=:matricule;" ' :matricule pour éviter les injections SQL
                     myCommandMdp.Connection = myConnection
                     myCommandMdp.CommandText = queryMdp
                     myCommandMdp.Parameters.Clear()
-                    myCommandMdp.Parameters.AddWithValue("@matricule", TextBox_Login.Text) ' Définition de @matricule ici
+                    myCommandMdp.Parameters.AddWithValue(":matricule", TextBox_Login.Text) ' Définition de :matricule ici (Text_Login.Text est utilisé en tant que chaîne de caractère)
                     myReaderMdp = myCommandMdp.ExecuteReader
                     If myReaderMdp.Read() Then ' Positionne le curseur sur la ligne
                         ' Si le mot de passe correspond, on cherche le rôle de l'utilisateur

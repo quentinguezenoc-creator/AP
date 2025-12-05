@@ -2,7 +2,6 @@
 Imports System.Data
 
 Public Class ListeEquipe
-
     Private Sub ListeEquipe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Ajout de la colonne cachée pour le matricule (si non présente dans le Designer)
         If DataGridView1.Columns.Count < 3 Then
@@ -32,14 +31,14 @@ Public Class ListeEquipe
         Dim query As String = "SELECT T2.nom, T2.prenom, T1.matriculeDelegue " &
                               "FROM Delegue T1 " &
                               "JOIN Utilisateur T2 ON T1.matriculeDelegue = T2.matricule " &
-                              "WHERE T1.matriculeResponsable = @matricule"
+                              "WHERE T1.matriculeResponsable = :matricule"
 
         Try
             myConnection.Open()
             myCommand.Connection = myConnection
             myCommand.CommandText = query
             myCommand.Parameters.Clear()
-            myCommand.Parameters.AddWithValue("@matricule", matriculeResponsable)
+            myCommand.Parameters.AddWithValue(":matricule", matriculeResponsable)
 
             Dim myReader As OdbcDataReader = myCommand.ExecuteReader()
             DataGridView1.Rows.Clear()
