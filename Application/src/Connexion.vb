@@ -33,29 +33,29 @@ Public Class Connexion
             myConnection.Open()
             ' Requête qui récupère tous les matricules
             Dim queryMat As String = "SELECT matricule FROM Utilisateur;"
-            myCommand.Connection = myConnection
-            myCommand.CommandText = queryMat
-            myReader = myCommand.ExecuteReader
+            myCommandUtil.Connection = myConnection
+            myCommandUtil.CommandText = queryMat
+            myReaderUtil = myCommandUtil.ExecuteReader
             ' Boucle de lecture, si le matricule de l'utilisateur existe, on teste son mot de passe
-            While myReader.Read
-                If myReader.GetString(0) = TextBox_Login.Text Then
+            While myReaderUtil.Read
+                If myReaderUtil.GetString(0) = TextBox_Login.Text Then
                     ' Requête qui récupère le mot de passe de l'utilisateur
                     Dim queryMdp As String = "SELECT motDePasse FROM Utilisateur WHERE matricule=@matricule;" ' @matricule pour éviter les injections SQL
-                    myCommand.Connection = myConnection
-                    myCommand.CommandText = queryMdp
-                    myCommand.Parameters.Clear()
-                    myCommand.Parameters.AddWithValue("@matricule", TextBox_Login.Text) ' Définition de @matricule ici
-                    myReader = myCommand.ExecuteReader
-                    If myReader.Read() Then ' Positionne le curseur sur la ligne
+                    myCommandMdp.Connection = myConnection
+                    myCommandMdp.CommandText = queryMdp
+                    myCommandMdp.Parameters.Clear()
+                    myCommandMdp.Parameters.AddWithValue("@matricule", TextBox_Login.Text) ' Définition de @matricule ici
+                    myReaderMdp = myCommandMdp.ExecuteReader
+                    If myReaderMdp.Read() Then ' Positionne le curseur sur la ligne
                         ' Si le mot de passe correspond, on cherche le rôle de l'utilisateur
-                        If myReader.GetString(0) = TextBox_MDP.Text Then
+                        If myReaderMdp.GetString(0) = TextBox_MDP.Text Then
                             ' Requête qui récupère les visiteurs
                             Dim queryV As String = "SELECT matriculeVisiteur FROM Visiteur;"
-                            myCommand.Connection = myConnection
-                            myCommand.CommandText = queryV
-                            myReader = myCommand.ExecuteReader
-                            If myReader.Read() Then ' Positionne le curseur sur la ligne
-                                If myReader.GetString(0) = TextBox_Login.Text Then
+                            myCommandV.Connection = myConnection
+                            myCommandV.CommandText = queryV
+                            myReaderV = myCommandV.ExecuteReader
+                            If myReaderV.Read() Then ' Positionne le curseur sur la ligne
+                                If myReaderV.GetString(0) = TextBox_Login.Text Then
                                     Dim f As New GestionCompte
                                     f.Show()
                                 Else
