@@ -49,6 +49,8 @@ Public Class Connexion
                     If myReaderMdp.Read() Then ' Positionne le curseur sur la ligne
                         ' Si le mot de passe correspond, on cherche le rôle de l'utilisateur
                         If myReaderMdp.GetString(0) = TextBox_MDP.Text Then
+                            GlobalData.MatriculeUtilisateurConnecte = TextBox_Login.Text
+
                             ' Requête qui récupère les visiteurs
                             Dim queryV As String = "SELECT matriculeVisiteur FROM Visiteur;"
                             myCommandV.Connection = myConnection

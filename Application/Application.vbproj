@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Formulaires -->
+    <Compile Include="GlobalData.vb" />
     <Compile Include="src\Connexion.Designer.vb">
       <DependentUpon>Connexion.vb</DependentUpon>
     </Compile>
