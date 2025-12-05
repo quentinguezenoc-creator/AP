@@ -43,6 +43,7 @@ Public Class Connexion
                             myReader = myCommand.ExecuteReader
                             If myReader.Read() Then ' Positionne le curseur sur la ligne
                                 If myReader.GetString(0) = TextBox_Login.Text Then
+                                    ' OUVERTURE DE LA FENETRE VISITEUR
                                     Dim f As New GestionCompte
                                     f.Show()
                                 Else
@@ -54,8 +55,12 @@ Public Class Connexion
                                     If myReader.Read() Then
                                         If myReader.GetString(0) = TextBox_Login.Text Then
                                             ' OUVERTURE DE LA FENETRE DELEGUE
+                                            Dim f As New ConsulterActiviteEquipe
+                                            f.Show()
                                         Else
                                             ' OUVERTURE DE LA FENETRE RESPONSABLE
+                                            Dim f As New ListeEquipe
+                                            f.Show()
                                         End If
                                     End If
                                 End If
