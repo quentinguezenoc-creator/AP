@@ -65,6 +65,7 @@ Partial Class Connexion
         Me.TextBox_MDP.Name = "TextBox_MDP"
         Me.TextBox_MDP.Size = New System.Drawing.Size(186, 20)
         Me.TextBox_MDP.TabIndex = 3
+        Me.TextBox_MDP.UseSystemPasswordChar = True
         '
         'Button_Connexion
         '
