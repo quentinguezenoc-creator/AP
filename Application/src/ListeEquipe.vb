@@ -50,25 +50,10 @@ Public Class ListeEquipe
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_Delegue.CellContentClick
-        If e.RowIndex >= 0 Then
-            ' Vérifie si la colonne cliquée est la colonne "Action" (Column_Action)
-            If e.ColumnIndex = DataGridView_Delegue.Columns("Column_Action").Index Then
-
-                ' Récupère le matricule du délégué dans la colonne cachée (index 2)
-                Dim delegueMatricule As String = DataGridView_Delegue.Rows(e.RowIndex).Cells(2).Value.ToString()
-                Dim delegueNom As String = DataGridView_Delegue.Rows(e.RowIndex).Cells("Column_Delegue").Value.ToString()
-
-                ' Ouvre la fenêtre de consultation d'activité d'équipe
-                Dim formActiviteEquipe As New ConsulterActiviteEquipe()
-
-                ' NOTE : Il faut ajouter une propriété publique 'MatriculeDelegue' à ConsulterActiviteEquipe.vb
-                ' pour lui transmettre le matricule.
-                formActiviteEquipe.MatriculeDelegue = delegueMatricule
-
-                formActiviteEquipe.Text = "Activité de l'équipe de " & delegueNom
-
-                formActiviteEquipe.Show()
-            End If
-        End If
+        ' Ouvre la fenêtre de consultation d'activité d'équipe
+        Dim f As New ConsulterActiviteEquipe()
+        f.MatriculeDelegue = DataGridView_Delegue.Rows(e.RowIndex).Cells("Column_MatriculeDelegue").Value.ToString()
+        f.Text = "Activité de l'équipe de " & DataGridView_Delegue.Rows(e.RowIndex).Cells("Column_Delegue").Value.ToString()
+        f.Show()
     End Sub
 End Class

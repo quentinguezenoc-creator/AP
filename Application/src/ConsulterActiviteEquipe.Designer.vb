@@ -36,7 +36,7 @@ Partial Class ConsulterActiviteEquipe
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label_Nb_Visite = New System.Windows.Forms.Label()
         Me.Nb_Visite = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button_Consulter = New System.Windows.Forms.Button()
         Me.DataGridView_Motif = New System.Windows.Forms.DataGridView()
         Me.Column_Motif = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,7 +46,7 @@ Partial Class ConsulterActiviteEquipe
         Me.Column_Nom = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Prenom = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Actions = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.MatriculeVisiteur = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_MatriculeVisiteur = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_Praticien, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -143,7 +143,7 @@ Partial Class ConsulterActiviteEquipe
         '
         Me.Panel1.Controls.Add(Me.Label_Nb_Visite)
         Me.Panel1.Controls.Add(Me.Nb_Visite)
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.Button_Consulter)
         Me.Panel1.Controls.Add(Me.DataGridView_Praticien)
         Me.Panel1.Controls.Add(Me.DataGridView_Motif)
         Me.Panel1.Controls.Add(Me.Label2)
@@ -173,14 +173,14 @@ Partial Class ConsulterActiviteEquipe
         Me.Nb_Visite.TabIndex = 31
         Me.Nb_Visite.Text = "Nombre total de visite :"
         '
-        'Button1
+        'Button_Consulter
         '
-        Me.Button1.Location = New System.Drawing.Point(590, 53)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 30
-        Me.Button1.Text = "Consulter"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button_Consulter.Location = New System.Drawing.Point(590, 53)
+        Me.Button_Consulter.Name = "Button_Consulter"
+        Me.Button_Consulter.Size = New System.Drawing.Size(75, 23)
+        Me.Button_Consulter.TabIndex = 30
+        Me.Button_Consulter.Text = "Consulter"
+        Me.Button_Consulter.UseVisualStyleBackColor = True
         '
         'DataGridView_Motif
         '
@@ -205,7 +205,7 @@ Partial Class ConsulterActiviteEquipe
         'DataGridView_Visiteur
         '
         Me.DataGridView_Visiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_Visiteur.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Nom, Me.Column_Prenom, Me.Column_Actions, Me.MatriculeVisiteur})
+        Me.DataGridView_Visiteur.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Nom, Me.Column_Prenom, Me.Column_Actions, Me.Column_MatriculeVisiteur})
         Me.DataGridView_Visiteur.Location = New System.Drawing.Point(8, 77)
         Me.DataGridView_Visiteur.Name = "DataGridView_Visiteur"
         Me.DataGridView_Visiteur.Size = New System.Drawing.Size(577, 255)
@@ -249,11 +249,11 @@ Partial Class ConsulterActiviteEquipe
         Me.Column_Actions.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Column_Actions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
-        'MatriculeVisiteur
+        'Column_MatriculeVisiteur
         '
-        Me.MatriculeVisiteur.HeaderText = "Matricule"
-        Me.MatriculeVisiteur.Name = "MatriculeVisiteur"
-        Me.MatriculeVisiteur.Visible = False
+        Me.Column_MatriculeVisiteur.HeaderText = "Matricule"
+        Me.Column_MatriculeVisiteur.Name = "Column_MatriculeVisiteur"
+        Me.Column_MatriculeVisiteur.Visible = False
         '
         'ConsulterActiviteEquipe
         '
@@ -292,7 +292,7 @@ Partial Class ConsulterActiviteEquipe
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents DataGridView_Motif As DataGridView
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Button_Consulter As Button
     Friend WithEvents Label_Nb_Visite As Label
     Friend WithEvents Nb_Visite As Label
     Friend WithEvents Column_Praticien As DataGridViewTextBoxColumn
@@ -302,5 +302,5 @@ Partial Class ConsulterActiviteEquipe
     Friend WithEvents Column_Nom As DataGridViewTextBoxColumn
     Friend WithEvents Column_Prenom As DataGridViewTextBoxColumn
     Friend WithEvents Column_Actions As DataGridViewButtonColumn
-    Friend WithEvents MatriculeVisiteur As DataGridViewTextBoxColumn
+    Friend WithEvents Column_MatriculeVisiteur As DataGridViewTextBoxColumn
 End Class

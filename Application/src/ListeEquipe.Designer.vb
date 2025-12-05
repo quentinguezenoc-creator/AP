@@ -28,7 +28,7 @@ Partial Class ListeEquipe
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Column_Delegue = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Action = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.MatriculeDelegue = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_MatriculeDelegue = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView_Delegue, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -36,7 +36,7 @@ Partial Class ListeEquipe
         'DataGridView_Delegue
         '
         Me.DataGridView_Delegue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_Delegue.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Delegue, Me.Column_Action, Me.MatriculeDelegue})
+        Me.DataGridView_Delegue.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Delegue, Me.Column_Action, Me.Column_MatriculeDelegue})
         Me.DataGridView_Delegue.Location = New System.Drawing.Point(125, 127)
         Me.DataGridView_Delegue.Name = "DataGridView_Delegue"
         Me.DataGridView_Delegue.Size = New System.Drawing.Size(550, 250)
@@ -79,11 +79,11 @@ Partial Class ListeEquipe
         Me.Column_Action.Text = "Consulter"
         Me.Column_Action.Width = 175
         '
-        'MatriculeDelegue
+        'Column_MatriculeDelegue
         '
-        Me.MatriculeDelegue.HeaderText = "Matricule"
-        Me.MatriculeDelegue.Name = "MatriculeDelegue"
-        Me.MatriculeDelegue.Visible = False
+        Me.Column_MatriculeDelegue.HeaderText = "Matricule"
+        Me.Column_MatriculeDelegue.Name = "Column_MatriculeDelegue"
+        Me.Column_MatriculeDelegue.Visible = False
         '
         'ListeEquipe
         '
@@ -107,5 +107,5 @@ Partial Class ListeEquipe
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Column_Delegue As DataGridViewTextBoxColumn
     Friend WithEvents Column_Action As DataGridViewButtonColumn
-    Friend WithEvents MatriculeDelegue As DataGridViewTextBoxColumn
+    Friend WithEvents Column_MatriculeDelegue As DataGridViewTextBoxColumn
 End Class

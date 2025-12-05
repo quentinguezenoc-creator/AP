@@ -15,6 +15,7 @@ Public Class Connexion
     Dim connString As String
     Dim donnee As DataTable
     Private Sub Connexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MyBase.Text = "Connexion"
         Button_Connexion.Enabled = False
         connString = GlobalData.ConnexionString ' Chaine de connexion à la base de données
         myConnection.ConnectionString = connString
@@ -52,15 +53,18 @@ Public Class Connexion
                             myCommandV.Connection = myConnection
                             myCommandV.CommandText = queryV
                             myReaderV = myCommandV.ExecuteReader
-                            If myReaderV.Read() Then ' Positionne le curseur sur la ligne
+                            While myReaderV.Read() ' Positionne le curseur sur la ligne
                                 If myReaderV.GetString(0) = TextBox_Login.Text Then
                                     Dim f As New GestionCompte
+                                    f.Text = "Gestion des comptes-rendus"
                                     f.Show()
                                 Else
                                     ' Try/Catch pour lever une exception sur la requête de sélection des délégués
                                     Try
                                         ' Requête qui récupère les délégués
-                                        Dim queryD As String = "SELECT matriculeDelegue FROM Delegue;"
+                                        Dim queryD As String = "SELECT nom, prenom, matriculedelegue 
+                                                                FROM delegue, utilisateur
+                                                                WHERE utilisateur.matricule = delegue.matriculedelegue;"
                                         myCommandD.Connection = myConnection
                                         myCommandD.CommandText = queryD
                                         myReaderD = myCommandD.ExecuteReader
@@ -69,20 +73,23 @@ Public Class Connexion
                                     End Try
 
                                     If myReaderD.Read() Then ' Positionne le curseur sur la ligne
-                                        If myReaderD.GetString(0) = TextBox_Login.Text Then ' Si l'utilisateur est un délégué, on ouvre la fenêtre d'accueil des délégués, sinon, on ouvre la fenêtre d'accueil des responsables
+                                        If myReaderD.GetString(2) = TextBox_Login.Text Then ' Si l'utilisateur est un délégué, on ouvre la fenêtre d'accueil des délégués, sinon, on ouvre la fenêtre d'accueil des responsables
                                             ' OUVERTURE DE LA FENETRE DELEGUE
                                             Dim f As New ConsulterActiviteEquipe
+                                            f.MatriculeDelegue = myReaderD.GetString(2)
+                                            f.Text = "Activité de l'équipe de " & myReaderD.GetString(1) & " " & myReaderD.GetString(0)
                                             f.Show()
                                         Else
                                             ' OUVERTURE DE LA FENETRE RESPONSABLE
                                             Dim f As New ListeEquipe
+                                            f.Text = "Liste des équipes"
                                             f.Show()
                                         End If
                                     End If
                                     myReaderD.Close() ' Fermeture du reader Délégué
                                 End If
-                                myReaderV.Close() ' Fermeture du reader Visiteur
-                            End If
+                            End While
+                            myReaderV.Close() ' Fermeture du reader Visiteur
                         Else
                             MsgBox("Nom d'utilisateur ou mot de passe incorrect.")
                         End If

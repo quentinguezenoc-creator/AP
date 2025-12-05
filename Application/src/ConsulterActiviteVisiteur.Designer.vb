@@ -28,7 +28,7 @@ Partial Class ConsulterActiviteVisiteur
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label_Nb_Visite = New System.Windows.Forms.Label()
         Me.Nb_Visite = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button_Consulter = New System.Windows.Forms.Button()
         Me.DataGridView_Praticien = New System.Windows.Forms.DataGridView()
         Me.Column_Praticien = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -36,10 +36,10 @@ Partial Class ConsulterActiviteVisiteur
         Me.Column_Motif = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker_Debut = New System.Windows.Forms.DateTimePicker()
         Me.Label_Debut = New System.Windows.Forms.Label()
         Me.Label_Fin = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker_Fin = New System.Windows.Forms.DateTimePicker()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DataGridView_CR = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -81,14 +81,14 @@ Partial Class ConsulterActiviteVisiteur
         '
         Me.Panel1.Controls.Add(Me.Label_Nb_Visite)
         Me.Panel1.Controls.Add(Me.Nb_Visite)
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.Button_Consulter)
         Me.Panel1.Controls.Add(Me.DataGridView_Praticien)
         Me.Panel1.Controls.Add(Me.DataGridView_Motif)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.DateTimePicker2)
+        Me.Panel1.Controls.Add(Me.DateTimePicker_Debut)
         Me.Panel1.Controls.Add(Me.Label_Debut)
         Me.Panel1.Controls.Add(Me.Label_Fin)
-        Me.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Panel1.Controls.Add(Me.DateTimePicker_Fin)
         Me.Panel1.Location = New System.Drawing.Point(12, 87)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(701, 407)
@@ -111,14 +111,14 @@ Partial Class ConsulterActiviteVisiteur
         Me.Nb_Visite.TabIndex = 32
         Me.Nb_Visite.Text = "Nombre total de visites :"
         '
-        'Button1
+        'Button_Consulter
         '
-        Me.Button1.Location = New System.Drawing.Point(588, 75)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 31
-        Me.Button1.Text = "Afficher"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button_Consulter.Location = New System.Drawing.Point(588, 75)
+        Me.Button_Consulter.Name = "Button_Consulter"
+        Me.Button_Consulter.Size = New System.Drawing.Size(75, 23)
+        Me.Button_Consulter.TabIndex = 31
+        Me.Button_Consulter.Text = "Afficher"
+        Me.Button_Consulter.UseVisualStyleBackColor = True
         '
         'DataGridView_Praticien
         '
@@ -170,12 +170,12 @@ Partial Class ConsulterActiviteVisiteur
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "Statistiques"
         '
-        'DateTimePicker2
+        'DateTimePicker_Debut
         '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(124, 77)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(177, 20)
-        Me.DateTimePicker2.TabIndex = 21
+        Me.DateTimePicker_Debut.Location = New System.Drawing.Point(124, 77)
+        Me.DateTimePicker_Debut.Name = "DateTimePicker_Debut"
+        Me.DateTimePicker_Debut.Size = New System.Drawing.Size(177, 20)
+        Me.DateTimePicker_Debut.TabIndex = 21
         '
         'Label_Debut
         '
@@ -195,12 +195,12 @@ Partial Class ConsulterActiviteVisiteur
         Me.Label_Fin.TabIndex = 23
         Me.Label_Fin.Text = "Date de fin :"
         '
-        'DateTimePicker1
+        'DateTimePicker_Fin
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(384, 77)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(177, 20)
-        Me.DateTimePicker1.TabIndex = 20
+        Me.DateTimePicker_Fin.Location = New System.Drawing.Point(384, 77)
+        Me.DateTimePicker_Fin.Name = "DateTimePicker_Fin"
+        Me.DateTimePicker_Fin.Size = New System.Drawing.Size(177, 20)
+        Me.DateTimePicker_Fin.TabIndex = 20
         '
         'Panel2
         '
@@ -282,14 +282,14 @@ Partial Class ConsulterActiviteVisiteur
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Button_Consulter As Button
     Friend WithEvents DataGridView_Praticien As DataGridView
     Friend WithEvents DataGridView_Motif As DataGridView
     Friend WithEvents Label2 As Label
-    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents DateTimePicker_Debut As DateTimePicker
     Friend WithEvents Label_Debut As Label
     Friend WithEvents Label_Fin As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents DateTimePicker_Fin As DateTimePicker
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents DataGridView_CR As DataGridView

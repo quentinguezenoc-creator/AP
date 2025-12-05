@@ -8,6 +8,7 @@ Public Class ConsulterActiviteEquipe
         DataGridView_Praticien.Visible = False
         DataGridView_Motif.Visible = False
 
+        ChargerVisiteur()
     End Sub
     Private Sub ChargerVisiteur()
         Dim query As String = "SELECT utilisateur.nom, utilisateur.prenom, utilisateur.matricule
@@ -29,21 +30,25 @@ Public Class ConsulterActiviteEquipe
             DataGridView_Visiteur.Rows.Clear()
 
             While myReader.Read()
-                DataGridView_Visiteur.Rows.Add(myReader.GetString(0), myReader.GetString(1), "Consulter")
+                DataGridView_Visiteur.Rows.Add(myReader.GetString(0), myReader.GetString(1), "Consulter", myReader.GetString(2))
             End While
         Catch ex As Exception
-
+            MessageBox.Show("Erreur lors de la connexion : " & ex.Message)
         End Try
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button_Consulter_Click(sender As Object, e As EventArgs) Handles Button_Consulter.Click
         Label_Nb_Visite.Visible = True
         Nb_Visite.Visible = True
         DataGridView_Praticien.Visible = True
         DataGridView_Motif.Visible = True
+
+
     End Sub
 
     Private Sub DataGridView_Visiteur_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_Visiteur.CellContentClick
-        Dim fenetre As New ConsulterActiviteVisiteur
-        fenetre.Show()
+        Dim f As New ConsulterActiviteVisiteur
+        f.MatriculeVisiteur = DataGridView_Visiteur.Rows(e.RowIndex).Cells("Column_MatriculeVisiteur").Value.ToString()
+        f.Text = "Activité du visiteur " & DataGridView_Visiteur.Rows(e.RowIndex).Cells("Column_Nom").Value.ToString() & " " & DataGridView_Visiteur.Rows(e.RowIndex).Cells("Column_Prenom").Value.ToString()
+        f.Show()
     End Sub
 End Class
