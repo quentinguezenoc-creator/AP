@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class GestionCompte
     Private compteurId As Integer = 1
     Private modeEdition As Boolean = False
     Private ligneEnCours As Integer = -1
