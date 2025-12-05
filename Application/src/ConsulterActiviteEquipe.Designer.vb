@@ -41,11 +41,12 @@ Partial Class ConsulterActiviteEquipe
         Me.Column_Motif = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridView_Visiteur = New System.Windows.Forms.DataGridView()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Column_Nom = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Prenom = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Actions = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.MatriculeVisiteur = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_Praticien, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -204,11 +205,30 @@ Partial Class ConsulterActiviteEquipe
         'DataGridView_Visiteur
         '
         Me.DataGridView_Visiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_Visiteur.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Nom, Me.Column_Prenom, Me.Column_Actions})
+        Me.DataGridView_Visiteur.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Nom, Me.Column_Prenom, Me.Column_Actions, Me.MatriculeVisiteur})
         Me.DataGridView_Visiteur.Location = New System.Drawing.Point(8, 77)
         Me.DataGridView_Visiteur.Name = "DataGridView_Visiteur"
         Me.DataGridView_Visiteur.Size = New System.Drawing.Size(577, 255)
         Me.DataGridView_Visiteur.TabIndex = 25
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Controls.Add(Me.DataGridView_Visiteur)
+        Me.Panel2.Location = New System.Drawing.Point(731, 118)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(597, 350)
+        Me.Panel2.TabIndex = 28
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(231, 22)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(134, 20)
+        Me.Label3.TabIndex = 26
+        Me.Label3.Text = "Liste des visiteurs"
         '
         'Column_Nom
         '
@@ -229,24 +249,11 @@ Partial Class ConsulterActiviteEquipe
         Me.Column_Actions.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Column_Actions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
-        'Panel2
+        'MatriculeVisiteur
         '
-        Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.DataGridView_Visiteur)
-        Me.Panel2.Location = New System.Drawing.Point(731, 118)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(597, 350)
-        Me.Panel2.TabIndex = 28
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(231, 22)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(134, 20)
-        Me.Label3.TabIndex = 26
-        Me.Label3.Text = "Liste des visiteurs"
+        Me.MatriculeVisiteur.HeaderText = "Matricule"
+        Me.MatriculeVisiteur.Name = "MatriculeVisiteur"
+        Me.MatriculeVisiteur.Visible = False
         '
         'ConsulterActiviteEquipe
         '
@@ -295,4 +302,5 @@ Partial Class ConsulterActiviteEquipe
     Friend WithEvents Column_Nom As DataGridViewTextBoxColumn
     Friend WithEvents Column_Prenom As DataGridViewTextBoxColumn
     Friend WithEvents Column_Actions As DataGridViewButtonColumn
+    Friend WithEvents MatriculeVisiteur As DataGridViewTextBoxColumn
 End Class

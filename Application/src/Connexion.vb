@@ -16,7 +16,7 @@ Public Class Connexion
     Dim donnee As DataTable
     Private Sub Connexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Button_Connexion.Enabled = False
-        connString = "DSN=SRVORAGSB;Uid=gestion;Pwd=Iroise29;" ' Chaine de connexion à la base de données
+        connString = GlobalData.ConnexionString ' Chaine de connexion à la base de données
         myConnection.ConnectionString = connString
         Try
             myConnection.Open() ' Connexion à la base de données

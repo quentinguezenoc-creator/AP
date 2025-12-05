@@ -23,38 +23,24 @@ Partial Class ListeEquipe
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListeEquipe))
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column_Delegue = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column_Action = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.DataGridView_Delegue = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Column_Delegue = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_Action = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.MatriculeDelegue = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.DataGridView_Delegue, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'DataGridView_Delegue
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Delegue, Me.Column_Action})
-        Me.DataGridView1.Location = New System.Drawing.Point(125, 127)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(550, 250)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'Column_Delegue
-        '
-        Me.Column_Delegue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column_Delegue.HeaderText = "Délégué"
-        Me.Column_Delegue.Name = "Column_Delegue"
-        '
-        'Column_Action
-        '
-        Me.Column_Action.HeaderText = "Action"
-        Me.Column_Action.Name = "Column_Action"
-        Me.Column_Action.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column_Action.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Column_Action.Text = "Consulter"
-        Me.Column_Action.Width = 175
+        Me.DataGridView_Delegue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_Delegue.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Delegue, Me.Column_Action, Me.MatriculeDelegue})
+        Me.DataGridView_Delegue.Location = New System.Drawing.Point(125, 127)
+        Me.DataGridView_Delegue.Name = "DataGridView_Delegue"
+        Me.DataGridView_Delegue.Size = New System.Drawing.Size(550, 250)
+        Me.DataGridView_Delegue.TabIndex = 0
         '
         'Label1
         '
@@ -78,6 +64,27 @@ Partial Class ListeEquipe
         Me.PictureBox1.TabIndex = 18
         Me.PictureBox1.TabStop = False
         '
+        'Column_Delegue
+        '
+        Me.Column_Delegue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column_Delegue.HeaderText = "Délégué"
+        Me.Column_Delegue.Name = "Column_Delegue"
+        '
+        'Column_Action
+        '
+        Me.Column_Action.HeaderText = "Action"
+        Me.Column_Action.Name = "Column_Action"
+        Me.Column_Action.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column_Action.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Column_Action.Text = "Consulter"
+        Me.Column_Action.Width = 175
+        '
+        'MatriculeDelegue
+        '
+        Me.MatriculeDelegue.HeaderText = "Matricule"
+        Me.MatriculeDelegue.Name = "MatriculeDelegue"
+        Me.MatriculeDelegue.Visible = False
+        '
         'ListeEquipe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -85,19 +92,20 @@ Partial Class ListeEquipe
         Me.ClientSize = New System.Drawing.Size(842, 516)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.DataGridView_Delegue)
         Me.Name = "ListeEquipe"
         Me.Text = "Form5"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView_Delegue, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DataGridView_Delegue As DataGridView
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Column_Delegue As DataGridViewTextBoxColumn
     Friend WithEvents Column_Action As DataGridViewButtonColumn
+    Friend WithEvents MatriculeDelegue As DataGridViewTextBoxColumn
 End Class

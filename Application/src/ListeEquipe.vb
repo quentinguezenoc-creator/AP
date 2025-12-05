@@ -3,13 +3,6 @@ Imports System.Data
 
 Public Class ListeEquipe
     Private Sub ListeEquipe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Ajout de la colonne cachée pour le matricule (si non présente dans le Designer)
-        If DataGridView1.Columns.Count < 3 Then
-            ' La colonne 0 est Column_Delegue, la 1 est Column_Action
-            DataGridView1.Columns.Add("MatriculeCache", "Matricule")
-            DataGridView1.Columns("MatriculeCache").Visible = False
-        End If
-
         ChargerDelegues()
     End Sub
 
@@ -41,14 +34,11 @@ Public Class ListeEquipe
             myCommand.Parameters.AddWithValue(":matricule", matriculeResponsable)
 
             Dim myReader As OdbcDataReader = myCommand.ExecuteReader()
-            DataGridView1.Rows.Clear()
+            DataGridView_Delegue.Rows.Clear()
 
             While myReader.Read()
-                Dim nomPrenom As String = myReader.GetString(1) & " " & myReader.GetString(0) ' Prénom Nom
-                Dim delegueMatricule As String = myReader.GetString(2)
-
-                ' Colonne 0 (Column_Delegue), Colonne 1 (Column_Action), Colonne 2 (MatriculeCache)
-                DataGridView1.Rows.Add(nomPrenom, "Consulter", delegueMatricule)
+                ' Colonne 0 (Nom et Prénom du délégué), Colonne 1 (Bouton Action), Colonne 2 (MatriculeDelegue)
+                DataGridView_Delegue.Rows.Add(myReader.GetString(1) & " " & myReader.GetString(0), "Consulter", myReader.GetString(2))
             End While
 
             myReader.Close()
@@ -59,21 +49,21 @@ Public Class ListeEquipe
         End Try
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_Delegue.CellContentClick
         If e.RowIndex >= 0 Then
             ' Vérifie si la colonne cliquée est la colonne "Action" (Column_Action)
-            If e.ColumnIndex = DataGridView1.Columns("Column_Action").Index Then
+            If e.ColumnIndex = DataGridView_Delegue.Columns("Column_Action").Index Then
 
                 ' Récupère le matricule du délégué dans la colonne cachée (index 2)
-                Dim delegueMatricule As String = DataGridView1.Rows(e.RowIndex).Cells(2).Value.ToString()
-                Dim delegueNom As String = DataGridView1.Rows(e.RowIndex).Cells("Column_Delegue").Value.ToString()
+                Dim delegueMatricule As String = DataGridView_Delegue.Rows(e.RowIndex).Cells(2).Value.ToString()
+                Dim delegueNom As String = DataGridView_Delegue.Rows(e.RowIndex).Cells("Column_Delegue").Value.ToString()
 
                 ' Ouvre la fenêtre de consultation d'activité d'équipe
                 Dim formActiviteEquipe As New ConsulterActiviteEquipe()
 
                 ' NOTE : Il faut ajouter une propriété publique 'MatriculeDelegue' à ConsulterActiviteEquipe.vb
                 ' pour lui transmettre le matricule.
-                ' formActiviteEquipe.MatriculeDelegue = delegueMatricule 
+                formActiviteEquipe.MatriculeDelegue = delegueMatricule
 
                 formActiviteEquipe.Text = "Activité de l'équipe de " & delegueNom
 
