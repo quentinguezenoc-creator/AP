@@ -34,9 +34,9 @@ Partial Class ConsulterCompteRendu
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Column_Produit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Echantillon = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -45,7 +45,7 @@ Partial Class ConsulterCompteRendu
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(463, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(493, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(126, 89)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -143,15 +143,6 @@ Partial Class ConsulterCompteRendu
         Me.DataGridView1.Size = New System.Drawing.Size(503, 100)
         Me.DataGridView1.TabIndex = 29
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(41, 224)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(100, 13)
-        Me.Label9.TabIndex = 30
-        Me.Label9.Text = "Produits présentés :"
-        '
         'Column_Produit
         '
         Me.Column_Produit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -165,11 +156,20 @@ Partial Class ConsulterCompteRendu
         Me.Column_Echantillon.Name = "Column_Echantillon"
         Me.Column_Echantillon.ReadOnly = True
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(41, 224)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(100, 13)
+        Me.Label9.TabIndex = 30
+        Me.Label9.Text = "Produits présentés :"
+        '
         'ConsulterCompteRendu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(601, 626)
+        Me.ClientSize = New System.Drawing.Size(631, 626)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.TextBox1)
