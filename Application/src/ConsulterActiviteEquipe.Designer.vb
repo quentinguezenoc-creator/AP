@@ -30,22 +30,22 @@ Partial Class ConsulterActiviteEquipe
         Me.Label_Debut = New System.Windows.Forms.Label()
         Me.Label_Fin = New System.Windows.Forms.Label()
         Me.DataGridView_Praticien = New System.Windows.Forms.DataGridView()
+        Me.Column_Praticien = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label_Nb_Visite = New System.Windows.Forms.Label()
         Me.Nb_Visite = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView_Motif = New System.Windows.Forms.DataGridView()
-        Me.DataGridView_Visiteur = New System.Windows.Forms.DataGridView()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Column_Praticien = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column_Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Motif = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridView_Visiteur = New System.Windows.Forms.DataGridView()
         Me.Column_Nom = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Prenom = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Actions = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_Praticien, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -117,6 +117,17 @@ Partial Class ConsulterActiviteEquipe
         Me.DataGridView_Praticien.Size = New System.Drawing.Size(310, 200)
         Me.DataGridView_Praticien.TabIndex = 24
         '
+        'Column_Praticien
+        '
+        Me.Column_Praticien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column_Praticien.HeaderText = "Praticien"
+        Me.Column_Praticien.Name = "Column_Praticien"
+        '
+        'Column_Nombre
+        '
+        Me.Column_Nombre.HeaderText = "Nombre de visites"
+        Me.Column_Nombre.Name = "Column_Nombre"
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -179,45 +190,6 @@ Partial Class ConsulterActiviteEquipe
         Me.DataGridView_Motif.Size = New System.Drawing.Size(310, 200)
         Me.DataGridView_Motif.TabIndex = 29
         '
-        'DataGridView_Visiteur
-        '
-        Me.DataGridView_Visiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_Visiteur.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Nom, Me.Column_Prenom, Me.Column_Actions})
-        Me.DataGridView_Visiteur.Location = New System.Drawing.Point(8, 77)
-        Me.DataGridView_Visiteur.Name = "DataGridView_Visiteur"
-        Me.DataGridView_Visiteur.Size = New System.Drawing.Size(577, 255)
-        Me.DataGridView_Visiteur.TabIndex = 25
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.DataGridView_Visiteur)
-        Me.Panel2.Location = New System.Drawing.Point(731, 118)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(597, 350)
-        Me.Panel2.TabIndex = 28
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(231, 22)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(134, 20)
-        Me.Label3.TabIndex = 26
-        Me.Label3.Text = "Liste des visiteurs"
-        '
-        'Column_Praticien
-        '
-        Me.Column_Praticien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column_Praticien.HeaderText = "Praticien"
-        Me.Column_Praticien.Name = "Column_Praticien"
-        '
-        'Column_Nombre
-        '
-        Me.Column_Nombre.HeaderText = "Nombre de visites"
-        Me.Column_Nombre.Name = "Column_Nombre"
-        '
         'Column_Motif
         '
         Me.Column_Motif.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -228,6 +200,15 @@ Partial Class ConsulterActiviteEquipe
         '
         Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre de visites"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridView_Visiteur
+        '
+        Me.DataGridView_Visiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_Visiteur.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Nom, Me.Column_Prenom, Me.Column_Actions})
+        Me.DataGridView_Visiteur.Location = New System.Drawing.Point(8, 77)
+        Me.DataGridView_Visiteur.Name = "DataGridView_Visiteur"
+        Me.DataGridView_Visiteur.Size = New System.Drawing.Size(577, 255)
+        Me.DataGridView_Visiteur.TabIndex = 25
         '
         'Column_Nom
         '
@@ -247,6 +228,25 @@ Partial Class ConsulterActiviteEquipe
         Me.Column_Actions.Name = "Column_Actions"
         Me.Column_Actions.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Column_Actions.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Controls.Add(Me.DataGridView_Visiteur)
+        Me.Panel2.Location = New System.Drawing.Point(731, 118)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(597, 350)
+        Me.Panel2.TabIndex = 28
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(231, 22)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(134, 20)
+        Me.Label3.TabIndex = 26
+        Me.Label3.Text = "Liste des visiteurs"
         '
         'ConsulterActiviteEquipe
         '

@@ -24,10 +24,10 @@ Partial Class ListeEquipe
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListeEquipe))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Column_Delegue = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Action = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -40,6 +40,21 @@ Partial Class ListeEquipe
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(550, 250)
         Me.DataGridView1.TabIndex = 0
+        '
+        'Column_Delegue
+        '
+        Me.Column_Delegue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column_Delegue.HeaderText = "Délégué"
+        Me.Column_Delegue.Name = "Column_Delegue"
+        '
+        'Column_Action
+        '
+        Me.Column_Action.HeaderText = "Action"
+        Me.Column_Action.Name = "Column_Action"
+        Me.Column_Action.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column_Action.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Column_Action.Text = "Consulter"
+        Me.Column_Action.Width = 175
         '
         'Label1
         '
@@ -62,21 +77,6 @@ Partial Class ListeEquipe
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 18
         Me.PictureBox1.TabStop = False
-        '
-        'Column_Delegue
-        '
-        Me.Column_Delegue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column_Delegue.HeaderText = "Délégué"
-        Me.Column_Delegue.Name = "Column_Delegue"
-        '
-        'Column_Action
-        '
-        Me.Column_Action.HeaderText = "Action"
-        Me.Column_Action.Name = "Column_Action"
-        Me.Column_Action.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column_Action.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Column_Action.Text = "Consulter"
-        Me.Column_Action.Width = 175
         '
         'ListeEquipe
         '

@@ -42,11 +42,11 @@ Partial Class ConsulterActiviteVisiteur
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DataGridView_CR = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView_Praticien, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -220,16 +220,6 @@ Partial Class ConsulterActiviteVisiteur
         Me.DataGridView_CR.Size = New System.Drawing.Size(538, 263)
         Me.DataGridView_CR.TabIndex = 1
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.Label3.Location = New System.Drawing.Point(212, 12)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(195, 20)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Liste des Comptes-rendus"
-        '
         'Column1
         '
         Me.Column1.HeaderText = "ID"
@@ -254,6 +244,16 @@ Partial Class ConsulterActiviteVisiteur
         Me.Column4.Name = "Column4"
         Me.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.Label3.Location = New System.Drawing.Point(212, 12)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(195, 20)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Liste des Comptes-rendus"
         '
         'ConsulterActiviteVisiteur
         '

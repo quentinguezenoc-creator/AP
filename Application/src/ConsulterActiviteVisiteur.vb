@@ -17,4 +17,9 @@
         DataGridView_Praticien.Visible = True
         DataGridView_Motif.Visible = True
     End Sub
+
+    Private Sub DataGridView_CR_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_CR.CellContentClick
+        Dim fenetre As New ConsulterCompteRendu
+        fenetre.Show()
+    End Sub
 End Class
