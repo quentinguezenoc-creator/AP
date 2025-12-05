@@ -13,11 +13,12 @@ Public Class Connexion
     End Sub
 
     Private Sub Connexion_Click(sender As Object, e As EventArgs) Handles Button_Connexion.Click
-        connString = "DSN=SRVORAGSB;Uid=gestion;Pwd=Iroise29;" ' Chaine de connexion à la base de données
+        Dim connString = "DSN=SRVORAGSB;Uid=gestion;Pwd=Iroise29;" ' Chaine de connexion à la base de données
         myConnection.ConnectionString = connString
         Try
             ' Connexion à la base de données
             myConnection.Open()
+
             ' Requête qui récupère tous les matricules
             Dim queryMat As String = "SELECT matricule FROM Utilisateur;"
             myCommand.Connection = myConnection
