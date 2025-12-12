@@ -3,9 +3,11 @@
 Public Class Connexion
     Dim myConnection As New Odbc.OdbcConnection
     Dim myCommandUtil As New Odbc.OdbcCommand
+    Dim myCommandRole As New Odbc.OdbcCommand
     Dim myCommandV As New Odbc.OdbcCommand
     Dim myCommandD As New Odbc.OdbcCommand
     Dim myReaderUtil As Odbc.OdbcDataReader
+    Dim myReaderRole As Odbc.OdbcDataReader
     Dim myReaderV As Odbc.OdbcDataReader
     Dim myReaderD As Odbc.OdbcDataReader
     Private Sub Connexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -33,30 +35,21 @@ Public Class Connexion
             ' Test si la combinaison matricule/mot de passe est trouvée, si oui, on cherche le rôle de l'utilisateur
             If myReaderUtil.Read() Then
                 GlobalData.MatriculeUtilisateurConnecte = TextBox_Login.Text
+                ' Requête qui récupère le rôle de l'utilisateur grâce à la fonction stockée getRole()
+                Dim queryRole As String = "SELECT getRole(:matricule) AS role FROM dual;"
+                myCommandRole.Connection = myConnection
+                myCommandRole.CommandText = queryRole
+                myCommandRole.Parameters.Clear()
+                myCommandRole.Parameters.AddWithValue(":matricule", GlobalData.MatriculeUtilisateurConnecte)
+                myReaderRole = myCommandRole.ExecuteReader()
 
-                ' Requête qui cherche si l'utilisateur est un visiteur
-                Dim queryV As String = "SELECT matriculevisiteur
-                                        FROM visiteur
-                                        WHERE matriculevisiteur = '" & GlobalData.MatriculeUtilisateurConnecte & "';"
-                myCommandV.Connection = myConnection
-                myCommandV.CommandText = queryV
-                myReaderV = myCommandV.ExecuteReader
-
-                If myReaderV.Read() Then ' Positionne le curseur sur la ligne
-                    ' OUVERTURE DE LA FENETRE VISITEUR
-                    Dim f As New GestionCompte
-                    f.Text = "Gestion des comptes-rendus de " & myReaderUtil.GetString(1) & " " & myReaderUtil.GetString(0)
-                    f.Show()
-                Else
-                    ' Requête qui cherche si l'utilisateur est un délégué
-                    Dim queryD As String = "SELECT matriculedelegue 
-                                            FROM delegue
-                                            WHERE delegue.matriculedelegue = '" & GlobalData.MatriculeUtilisateurConnecte & "';"
-                    myCommandD.Connection = myConnection
-                    myCommandD.CommandText = queryD
-                    myReaderD = myCommandD.ExecuteReader
-
-                    If myReaderD.Read() Then ' Positionne le curseur sur la ligne
+                If myReaderRole.Read() Then
+                    If myReaderRole.GetString(0) = "Visiteur" Then
+                        ' OUVERTURE DE LA FENETRE VISITEUR
+                        Dim f As New GestionCompte
+                        f.Text = "Gestion des comptes-rendus de " & myReaderUtil.GetString(1) & " " & myReaderUtil.GetString(0)
+                        f.Show()
+                    ElseIf myReaderRole.GetString(0) = "Delegue" Then
                         ' OUVERTURE DE LA FENETRE DELEGUE
                         Dim f As New ConsulterActiviteEquipe
                         f.Text = "Activité de l'équipe de " & myReaderUtil.GetString(1) & " " & myReaderUtil.GetString(0)
@@ -68,9 +61,46 @@ Public Class Connexion
                         f.Text = "Liste des équipes de " & myReaderUtil.GetString(1) & " " & myReaderUtil.GetString(0)
                         f.Show()
                     End If
-                    myReaderD.Close() ' Fermeture du reader Délégué
                 End If
-                myReaderV.Close() ' Fermeture du reader Visiteur
+                myReaderRole.Close() ' Fermeture du reader Rôle
+
+                '' Requête qui cherche si l'utilisateur est un visiteur
+                'Dim queryV As String = "SELECT matriculevisiteur
+                '                        FROM visiteur
+                '                        WHERE matriculevisiteur = '" & GlobalData.MatriculeUtilisateurConnecte & "';"
+                'myCommandV.Connection = myConnection
+                'myCommandV.CommandText = queryV
+                'myReaderV = myCommandV.ExecuteReader
+
+                'If myReaderV.Read() Then ' Positionne le curseur sur la ligne
+                '    ' OUVERTURE DE LA FENETRE VISITEUR
+                '    Dim f As New GestionCompte
+                '    f.Text = "Gestion des comptes-rendus de " & myReaderUtil.GetString(1) & " " & myReaderUtil.GetString(0)
+                '    f.Show()
+                'Else
+                '    ' Requête qui cherche si l'utilisateur est un délégué
+                '    Dim queryD As String = "SELECT matriculedelegue 
+                '                            FROM delegue
+                '                            WHERE delegue.matriculedelegue = '" & GlobalData.MatriculeUtilisateurConnecte & "';"
+                '    myCommandD.Connection = myConnection
+                '    myCommandD.CommandText = queryD
+                '    myReaderD = myCommandD.ExecuteReader
+
+                '    If myReaderD.Read() Then ' Positionne le curseur sur la ligne
+                '        ' OUVERTURE DE LA FENETRE DELEGUE
+                '        Dim f As New ConsulterActiviteEquipe
+                '        f.Text = "Activité de l'équipe de " & myReaderUtil.GetString(1) & " " & myReaderUtil.GetString(0)
+                '        f.MatriculeDelegue = GlobalData.MatriculeUtilisateurConnecte
+                '        f.Show()
+                '    Else
+                '        ' OUVERTURE DE LA FENETRE RESPONSABLE
+                '        Dim f As New ListeEquipe
+                '        f.Text = "Liste des équipes de " & myReaderUtil.GetString(1) & " " & myReaderUtil.GetString(0)
+                '        f.Show()
+                '    End If
+                '    myReaderD.Close() ' Fermeture du reader Délégué
+                'End If
+                'myReaderV.Close() ' Fermeture du reader Visiteur
             Else
                 MsgBox("Nom d'utilisateur ou mot de passe incorrect.")
             End If
