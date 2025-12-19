@@ -42,11 +42,11 @@ Partial Class ConsulterActiviteVisiteur
         Me.DateTimePicker_Fin = New System.Windows.Forms.DateTimePicker()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.DataGridView_CR = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Column_Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_Date = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_PraticienCR = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_Action = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView_Praticien, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,8 +116,8 @@ Partial Class ConsulterActiviteVisiteur
         Me.Button_Consulter.Location = New System.Drawing.Point(588, 75)
         Me.Button_Consulter.Name = "Button_Consulter"
         Me.Button_Consulter.Size = New System.Drawing.Size(75, 23)
-        Me.Button_Consulter.TabIndex = 31
-        Me.Button_Consulter.Text = "Afficher"
+        Me.Button_Consulter.TabIndex = 1
+        Me.Button_Consulter.Text = "Consulter"
         Me.Button_Consulter.UseVisualStyleBackColor = True
         '
         'DataGridView_Praticien
@@ -175,7 +175,7 @@ Partial Class ConsulterActiviteVisiteur
         Me.DateTimePicker_Debut.Location = New System.Drawing.Point(124, 77)
         Me.DateTimePicker_Debut.Name = "DateTimePicker_Debut"
         Me.DateTimePicker_Debut.Size = New System.Drawing.Size(177, 20)
-        Me.DateTimePicker_Debut.TabIndex = 21
+        Me.DateTimePicker_Debut.TabIndex = 2
         '
         'Label_Debut
         '
@@ -200,7 +200,7 @@ Partial Class ConsulterActiviteVisiteur
         Me.DateTimePicker_Fin.Location = New System.Drawing.Point(384, 77)
         Me.DateTimePicker_Fin.Name = "DateTimePicker_Fin"
         Me.DateTimePicker_Fin.Size = New System.Drawing.Size(177, 20)
-        Me.DateTimePicker_Fin.TabIndex = 20
+        Me.DateTimePicker_Fin.TabIndex = 3
         '
         'Panel2
         '
@@ -214,36 +214,11 @@ Partial Class ConsulterActiviteVisiteur
         'DataGridView_CR
         '
         Me.DataGridView_CR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_CR.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4})
+        Me.DataGridView_CR.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Id, Me.Column_Date, Me.Column_PraticienCR, Me.Column_Action})
         Me.DataGridView_CR.Location = New System.Drawing.Point(26, 77)
         Me.DataGridView_CR.Name = "DataGridView_CR"
         Me.DataGridView_CR.Size = New System.Drawing.Size(538, 263)
         Me.DataGridView_CR.TabIndex = 1
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "ID"
-        Me.Column1.Name = "Column1"
-        Me.Column1.Width = 75
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Date"
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 125
-        '
-        'Column3
-        '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column3.HeaderText = "Praticien"
-        Me.Column3.Name = "Column3"
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Action"
-        Me.Column4.Name = "Column4"
-        Me.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'Label3
         '
@@ -254,6 +229,32 @@ Partial Class ConsulterActiviteVisiteur
         Me.Label3.Size = New System.Drawing.Size(195, 20)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Liste des Comptes-rendus"
+        '
+        'Column_Id
+        '
+        Me.Column_Id.HeaderText = "ID"
+        Me.Column_Id.Name = "Column_Id"
+        Me.Column_Id.Visible = False
+        Me.Column_Id.Width = 75
+        '
+        'Column_Date
+        '
+        Me.Column_Date.HeaderText = "Date"
+        Me.Column_Date.Name = "Column_Date"
+        Me.Column_Date.Width = 125
+        '
+        'Column_PraticienCR
+        '
+        Me.Column_PraticienCR.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column_PraticienCR.HeaderText = "Praticien"
+        Me.Column_PraticienCR.Name = "Column_PraticienCR"
+        '
+        'Column_Action
+        '
+        Me.Column_Action.HeaderText = "Action"
+        Me.Column_Action.Name = "Column_Action"
+        Me.Column_Action.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column_Action.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'ConsulterActiviteVisiteur
         '
@@ -299,8 +300,8 @@ Partial Class ConsulterActiviteVisiteur
     Friend WithEvents Column_Nombre As DataGridViewTextBoxColumn
     Friend WithEvents Column_Motif As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewButtonColumn
+    Friend WithEvents Column_Id As DataGridViewTextBoxColumn
+    Friend WithEvents Column_Date As DataGridViewTextBoxColumn
+    Friend WithEvents Column_PraticienCR As DataGridViewTextBoxColumn
+    Friend WithEvents Column_Action As DataGridViewButtonColumn
 End Class

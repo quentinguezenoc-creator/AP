@@ -26,19 +26,19 @@ Partial Class ConsulterCompteRendu
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Nom_Praticien = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Date_Visite = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Motif = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TextBox_Bilan = New System.Windows.Forms.TextBox()
+        Me.DataGridView_Produits = New System.Windows.Forms.DataGridView()
         Me.Column_Produit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Echantillon = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView_Produits, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -71,14 +71,14 @@ Partial Class ConsulterCompteRendu
         Me.Label2.TabIndex = 21
         Me.Label2.Text = "Praticien :"
         '
-        'Label3
+        'Nom_Praticien
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(101, 184)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 13)
-        Me.Label3.TabIndex = 22
-        Me.Label3.Text = "Label3"
+        Me.Nom_Praticien.AutoSize = True
+        Me.Nom_Praticien.Location = New System.Drawing.Point(101, 184)
+        Me.Nom_Praticien.Name = "Nom_Praticien"
+        Me.Nom_Praticien.Size = New System.Drawing.Size(39, 13)
+        Me.Nom_Praticien.TabIndex = 22
+        Me.Nom_Praticien.Text = "Label3"
         '
         'Label4
         '
@@ -89,14 +89,14 @@ Partial Class ConsulterCompteRendu
         Me.Label4.TabIndex = 23
         Me.Label4.Text = "Date de la visite :"
         '
-        'Label5
+        'Date_Visite
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(416, 184)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(39, 13)
-        Me.Label5.TabIndex = 24
-        Me.Label5.Text = "Label5"
+        Me.Date_Visite.AutoSize = True
+        Me.Date_Visite.Location = New System.Drawing.Point(416, 184)
+        Me.Date_Visite.Name = "Date_Visite"
+        Me.Date_Visite.Size = New System.Drawing.Size(39, 13)
+        Me.Date_Visite.TabIndex = 24
+        Me.Date_Visite.Text = "Label5"
         '
         'Label6
         '
@@ -107,14 +107,14 @@ Partial Class ConsulterCompteRendu
         Me.Label6.TabIndex = 25
         Me.Label6.Text = "Motif de la visite :"
         '
-        'Label7
+        'Motif
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(137, 370)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(39, 13)
-        Me.Label7.TabIndex = 26
-        Me.Label7.Text = "Label7"
+        Me.Motif.AutoSize = True
+        Me.Motif.Location = New System.Drawing.Point(137, 370)
+        Me.Motif.Name = "Motif"
+        Me.Motif.Size = New System.Drawing.Size(39, 13)
+        Me.Motif.TabIndex = 26
+        Me.Motif.Text = "Label7"
         '
         'Label8
         '
@@ -125,23 +125,23 @@ Partial Class ConsulterCompteRendu
         Me.Label8.TabIndex = 27
         Me.Label8.Text = "Bilan de la visite :"
         '
-        'TextBox1
+        'TextBox_Bilan
         '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(47, 449)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(500, 60)
-        Me.TextBox1.TabIndex = 28
+        Me.TextBox_Bilan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox_Bilan.Location = New System.Drawing.Point(47, 449)
+        Me.TextBox_Bilan.Multiline = True
+        Me.TextBox_Bilan.Name = "TextBox_Bilan"
+        Me.TextBox_Bilan.Size = New System.Drawing.Size(500, 60)
+        Me.TextBox_Bilan.TabIndex = 28
         '
-        'DataGridView1
+        'DataGridView_Produits
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Produit, Me.Column_Echantillon})
-        Me.DataGridView1.Location = New System.Drawing.Point(44, 240)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(503, 100)
-        Me.DataGridView1.TabIndex = 29
+        Me.DataGridView_Produits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_Produits.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Produit, Me.Column_Echantillon})
+        Me.DataGridView_Produits.Location = New System.Drawing.Point(44, 240)
+        Me.DataGridView_Produits.Name = "DataGridView_Produits"
+        Me.DataGridView_Produits.Size = New System.Drawing.Size(503, 100)
+        Me.DataGridView_Produits.TabIndex = 29
         '
         'Column_Produit
         '
@@ -171,21 +171,21 @@ Partial Class ConsulterCompteRendu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(631, 626)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.DataGridView_Produits)
+        Me.Controls.Add(Me.TextBox_Bilan)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Motif)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Date_Visite)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Nom_Praticien)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "ConsulterCompteRendu"
         Me.Text = "Form2"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView_Produits, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -194,14 +194,14 @@ Partial Class ConsulterCompteRendu
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents Nom_Praticien As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
+    Friend WithEvents Date_Visite As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
+    Friend WithEvents Motif As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TextBox_Bilan As TextBox
+    Friend WithEvents DataGridView_Produits As DataGridView
     Friend WithEvents Label9 As Label
     Friend WithEvents Column_Produit As DataGridViewTextBoxColumn
     Friend WithEvents Column_Echantillon As DataGridViewTextBoxColumn

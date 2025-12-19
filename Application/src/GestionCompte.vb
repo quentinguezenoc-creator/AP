@@ -187,12 +187,7 @@
 
                 Dim formConsulter As New ConsulterCompteRendu()
 
-                formConsulter.PraticienSelectionne = praticien
-                formConsulter.DateVisiteSelectionnee = dateVisite
-                formConsulter.BilanVisiteSelectionne = bilan
-                formConsulter.MotifSelectionne = motif
-                formConsulter.MotifDetailSelectionne = motifdetail
-                formConsulter.ProduitsEchantillonsSerialises = produitsEchantillons
+                formConsulter.numeroCR = Convert.ToInt32(row.Cells("Id").Value)
 
                 formConsulter.Show()
 
@@ -205,20 +200,11 @@
 
         'Implémentation du bouton Voir
         If e.ColumnIndex = DataGridViewComptesRendus.Columns("Voir").Index Then
-
-            'recupérer les données de la ligne sélectionnée
-            Dim row As DataGridViewRow = DataGridViewComptesRendus.Rows(e.RowIndex)
-            Dim bilan As String = row.Cells("Bilan").Value.ToString()
-            Dim praticien As String = row.Cells("Praticien").Value.ToString()
-            Dim dateVisite As String = row.Cells("DateVisite").Value.ToString()
-
-            'Création instance de la fen^tre de consultation
+            'Création instance de la fenêtre de consultation
             Dim formConsulter As New ConsulterCompteRendu()
 
             'Transmission des données à la fenêtre de consultation
-            formConsulter.PraticienSelectionne = praticien
-            formConsulter.DateVisiteSelectionnee = dateVisite
-            formConsulter.BilanVisiteSelectionne = bilan
+            formConsulter.numeroCR = Convert.ToInt32(DataGridViewComptesRendus.Rows(e.RowIndex).Cells("Column_Id").Value)
 
             'Afficher la fenêtre de consultation
             formConsulter.ShowDialog()

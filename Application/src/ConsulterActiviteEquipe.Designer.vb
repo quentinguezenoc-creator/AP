@@ -25,8 +25,8 @@ Partial Class ConsulterActiviteEquipe
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ConsulterActiviteEquipe))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker_Fin = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker_Debut = New System.Windows.Forms.DateTimePicker()
         Me.Label_Debut = New System.Windows.Forms.Label()
         Me.Label_Fin = New System.Windows.Forms.Label()
         Me.DataGridView_Praticien = New System.Windows.Forms.DataGridView()
@@ -41,12 +41,12 @@ Partial Class ConsulterActiviteEquipe
         Me.Column_Motif = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridView_Visiteur = New System.Windows.Forms.DataGridView()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Column_Nom = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Prenom = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Actions = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Column_MatriculeVisiteur = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_Praticien, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -77,19 +77,19 @@ Partial Class ConsulterActiviteEquipe
         Me.PictureBox1.TabIndex = 19
         Me.PictureBox1.TabStop = False
         '
-        'DateTimePicker1
+        'DateTimePicker_Fin
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(375, 55)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(177, 20)
-        Me.DateTimePicker1.TabIndex = 20
+        Me.DateTimePicker_Fin.Location = New System.Drawing.Point(375, 55)
+        Me.DateTimePicker_Fin.Name = "DateTimePicker_Fin"
+        Me.DateTimePicker_Fin.Size = New System.Drawing.Size(177, 20)
+        Me.DateTimePicker_Fin.TabIndex = 3
         '
-        'DateTimePicker2
+        'DateTimePicker_Debut
         '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(112, 55)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(177, 20)
-        Me.DateTimePicker2.TabIndex = 21
+        Me.DateTimePicker_Debut.Location = New System.Drawing.Point(112, 55)
+        Me.DateTimePicker_Debut.Name = "DateTimePicker_Debut"
+        Me.DateTimePicker_Debut.Size = New System.Drawing.Size(177, 20)
+        Me.DateTimePicker_Debut.TabIndex = 2
         '
         'Label_Debut
         '
@@ -147,10 +147,10 @@ Partial Class ConsulterActiviteEquipe
         Me.Panel1.Controls.Add(Me.DataGridView_Praticien)
         Me.Panel1.Controls.Add(Me.DataGridView_Motif)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.DateTimePicker2)
+        Me.Panel1.Controls.Add(Me.DateTimePicker_Debut)
         Me.Panel1.Controls.Add(Me.Label_Debut)
         Me.Panel1.Controls.Add(Me.Label_Fin)
-        Me.Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Panel1.Controls.Add(Me.DateTimePicker_Fin)
         Me.Panel1.Location = New System.Drawing.Point(12, 118)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(691, 350)
@@ -178,7 +178,7 @@ Partial Class ConsulterActiviteEquipe
         Me.Button_Consulter.Location = New System.Drawing.Point(590, 53)
         Me.Button_Consulter.Name = "Button_Consulter"
         Me.Button_Consulter.Size = New System.Drawing.Size(75, 23)
-        Me.Button_Consulter.TabIndex = 30
+        Me.Button_Consulter.TabIndex = 1
         Me.Button_Consulter.Text = "Consulter"
         Me.Button_Consulter.UseVisualStyleBackColor = True
         '
@@ -211,25 +211,6 @@ Partial Class ConsulterActiviteEquipe
         Me.DataGridView_Visiteur.Size = New System.Drawing.Size(577, 255)
         Me.DataGridView_Visiteur.TabIndex = 25
         '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.DataGridView_Visiteur)
-        Me.Panel2.Location = New System.Drawing.Point(731, 118)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(597, 350)
-        Me.Panel2.TabIndex = 28
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(231, 22)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(134, 20)
-        Me.Label3.TabIndex = 26
-        Me.Label3.Text = "Liste des visiteurs"
-        '
         'Column_Nom
         '
         Me.Column_Nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -254,6 +235,25 @@ Partial Class ConsulterActiviteEquipe
         Me.Column_MatriculeVisiteur.HeaderText = "Matricule"
         Me.Column_MatriculeVisiteur.Name = "Column_MatriculeVisiteur"
         Me.Column_MatriculeVisiteur.Visible = False
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Controls.Add(Me.DataGridView_Visiteur)
+        Me.Panel2.Location = New System.Drawing.Point(731, 118)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(597, 350)
+        Me.Panel2.TabIndex = 28
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(231, 22)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(134, 20)
+        Me.Label3.TabIndex = 26
+        Me.Label3.Text = "Liste des visiteurs"
         '
         'ConsulterActiviteEquipe
         '
@@ -281,8 +281,8 @@ Partial Class ConsulterActiviteEquipe
 
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents DateTimePicker_Fin As DateTimePicker
+    Friend WithEvents DateTimePicker_Debut As DateTimePicker
     Friend WithEvents Label_Debut As Label
     Friend WithEvents Label_Fin As Label
     Friend WithEvents DataGridView_Praticien As DataGridView

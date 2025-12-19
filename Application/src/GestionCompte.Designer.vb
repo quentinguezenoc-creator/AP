@@ -37,11 +37,6 @@ Partial Class GestionCompte
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridViewComptesRendus = New System.Windows.Forms.DataGridView()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Praticien_table = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Date_visite = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Modifier = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.Voir = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.AjouterCompteRendu = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -49,6 +44,11 @@ Partial Class GestionCompte
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column_Produit = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Column_Echantillon = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_Praticien = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_DateVisite = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column_Modifier = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Column_Voir = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridViewComptesRendus, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -183,50 +183,11 @@ Partial Class GestionCompte
         '
         Me.DataGridViewComptesRendus.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridViewComptesRendus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewComptesRendus.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.Praticien_table, Me.Date_visite, Me.Modifier, Me.Voir})
+        Me.DataGridViewComptesRendus.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Id, Me.Column_Praticien, Me.Column_DateVisite, Me.Column_Modifier, Me.Column_Voir})
         Me.DataGridViewComptesRendus.Location = New System.Drawing.Point(14, 112)
         Me.DataGridViewComptesRendus.Name = "DataGridViewComptesRendus"
         Me.DataGridViewComptesRendus.Size = New System.Drawing.Size(479, 336)
         Me.DataGridViewComptesRendus.TabIndex = 19
-        '
-        'ID
-        '
-        Me.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ID.FillWeight = 50.76142!
-        Me.ID.HeaderText = "Id"
-        Me.ID.Name = "ID"
-        '
-        'Praticien_table
-        '
-        Me.Praticien_table.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Praticien_table.FillWeight = 112.3096!
-        Me.Praticien_table.HeaderText = "Praticien"
-        Me.Praticien_table.Name = "Praticien_table"
-        '
-        'Date_visite
-        '
-        Me.Date_visite.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Date_visite.FillWeight = 112.3096!
-        Me.Date_visite.HeaderText = "Date de la visite"
-        Me.Date_visite.Name = "Date_visite"
-        '
-        'Modifier
-        '
-        Me.Modifier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Modifier.FillWeight = 112.3096!
-        Me.Modifier.HeaderText = "Modifier"
-        Me.Modifier.Name = "Modifier"
-        Me.Modifier.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Modifier.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
-        'Voir
-        '
-        Me.Voir.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Voir.FillWeight = 112.3096!
-        Me.Voir.HeaderText = "Voir"
-        Me.Voir.Name = "Voir"
-        Me.Voir.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Voir.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'Label3
         '
@@ -299,7 +260,47 @@ Partial Class GestionCompte
         Me.Column_Echantillon.HeaderText = "Échantillon"
         Me.Column_Echantillon.Name = "Column_Echantillon"
         '
-        'Form1
+        'Column_Id
+        '
+        Me.Column_Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column_Id.FillWeight = 50.76142!
+        Me.Column_Id.HeaderText = "Id"
+        Me.Column_Id.Name = "Column_Id"
+        Me.Column_Id.Visible = False
+        '
+        'Column_Praticien
+        '
+        Me.Column_Praticien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column_Praticien.FillWeight = 112.3096!
+        Me.Column_Praticien.HeaderText = "Praticien"
+        Me.Column_Praticien.Name = "Column_Praticien"
+        '
+        'Column_DateVisite
+        '
+        Me.Column_DateVisite.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column_DateVisite.FillWeight = 112.3096!
+        Me.Column_DateVisite.HeaderText = "Date de la visite"
+        Me.Column_DateVisite.Name = "Column_DateVisite"
+        '
+        'Column_Modifier
+        '
+        Me.Column_Modifier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column_Modifier.FillWeight = 112.3096!
+        Me.Column_Modifier.HeaderText = "Modifier"
+        Me.Column_Modifier.Name = "Column_Modifier"
+        Me.Column_Modifier.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column_Modifier.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'Column_Voir
+        '
+        Me.Column_Voir.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Column_Voir.FillWeight = 112.3096!
+        Me.Column_Voir.HeaderText = "Voir"
+        Me.Column_Voir.Name = "Column_Voir"
+        Me.Column_Voir.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Column_Voir.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'GestionCompte
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -308,7 +309,7 @@ Partial Class GestionCompte
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form1"
+        Me.Name = "GestionCompte"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridViewComptesRendus, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -334,15 +335,15 @@ Partial Class GestionCompte
     Friend WithEvents Label2 As Label
     Friend WithEvents DataGridViewComptesRendus As DataGridView
     Friend WithEvents Label3 As Label
-    Friend WithEvents ID As DataGridViewTextBoxColumn
-    Friend WithEvents Praticien_table As DataGridViewTextBoxColumn
-    Friend WithEvents Date_visite As DataGridViewTextBoxColumn
-    Friend WithEvents Modifier As DataGridViewButtonColumn
-    Friend WithEvents Voir As DataGridViewButtonColumn
     Friend WithEvents AjouterCompteRendu As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Column_Produit As DataGridViewComboBoxColumn
     Friend WithEvents Column_Echantillon As DataGridViewTextBoxColumn
+    Friend WithEvents Column_Id As DataGridViewTextBoxColumn
+    Friend WithEvents Column_Praticien As DataGridViewTextBoxColumn
+    Friend WithEvents Column_DateVisite As DataGridViewTextBoxColumn
+    Friend WithEvents Column_Modifier As DataGridViewButtonColumn
+    Friend WithEvents Column_Voir As DataGridViewButtonColumn
 End Class

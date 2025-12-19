@@ -46,10 +46,12 @@ Public Class Connexion
                 If myReaderRole.Read() Then
                     If myReaderRole.GetString(0) = "Visiteur" Then
                         ' OUVERTURE DE LA FENETRE VISITEUR
+                        GlobalData.RoleUtilisateurConnecte = "Visiteur"
                         Dim f As New GestionCompte
                         f.Text = "Gestion des comptes-rendus de " & myReaderUtil.GetString(1) & " " & myReaderUtil.GetString(0)
                         f.Show()
                     ElseIf myReaderRole.GetString(0) = "Delegue" Then
+                        GlobalData.RoleUtilisateurConnecte = "Delegue"
                         ' OUVERTURE DE LA FENETRE DELEGUE
                         Dim f As New ConsulterActiviteEquipe
                         f.Text = "Activité de l'équipe de " & myReaderUtil.GetString(1) & " " & myReaderUtil.GetString(0)
@@ -57,6 +59,7 @@ Public Class Connexion
                         f.Show()
                     Else
                         ' OUVERTURE DE LA FENETRE RESPONSABLE
+                        GlobalData.RoleUtilisateurConnecte = "Responsable"
                         Dim f As New ListeEquipe
                         f.Text = "Liste des équipes de " & myReaderUtil.GetString(1) & " " & myReaderUtil.GetString(0)
                         f.Show()

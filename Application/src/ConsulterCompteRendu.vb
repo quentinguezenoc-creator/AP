@@ -1,45 +1,56 @@
-﻿Public Class ConsulterCompteRendu
+﻿Imports System.Data.Common
+Imports System.Data.Odbc
 
-    ' Propriétés pour recevoir les données du compte-rendu
-    Public Property PraticienSelectionne As String
-    Public Property DateVisiteSelectionnee As String
-    Public Property MotifSelectionne As String
-    Public Property MotifDetailSelectionne As String
-    Public Property BilanVisiteSelectionne As String
-    Public Property ProduitsEchantillonsSerialises As String ' Chaîne de produits|quantité;...
-
-    ' Helper function to deserialize string back into DataGridView1 (copie pour la lecture seule)
-    Private Sub DeserializeProductsSamples(ByVal data As String)
-        DataGridView1.Rows.Clear()
-        If Not String.IsNullOrWhiteSpace(data) Then
-            Dim items() As String = data.Split(";"c)
-            For Each item As String In items
-                Dim parts() As String = item.Split("|"c)
-                If parts.Length = 2 Then
-                    ' Ajoute le produit et l'échantillon à la grille de consultation
-                    DataGridView1.Rows.Add(parts(0), parts(1))
-                End If
-            Next
-        End If
-    End Sub
-
+Public Class ConsulterCompteRendu
+    Public numeroCR As Integer
+    Dim myConnection As New Odbc.OdbcConnection
+    Dim myCommand As New Odbc.OdbcCommand
+    Dim myReader As OdbcDataReader
     Private Sub ConsulterCompteRendu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        ' Afficher les données générales
-        Label3.Text = PraticienSelectionne       ' Praticien
-        Label5.Text = DateVisiteSelectionnee     ' Date
-
-        ' Affichage du Motif (avec détail si "Autre")
-        Dim motifText As String = MotifSelectionne
-        If MotifSelectionne = "Autre" AndAlso Not String.IsNullOrWhiteSpace(MotifDetailSelectionne) Then
-            motifText &= " (" & MotifDetailSelectionne & ")"
+        TextBox_Bilan.Enabled = False
+        myConnection.ConnectionString = GlobalData.ConnexionString ' Chaine de connexion à la base de données
+        Try
+            myConnection.Open() ' Connexion à la base de données
+        Catch ex As Exception
+            MessageBox.Show("Erreur lors de la connexion à la base de données : " & ex.Message)
+        End Try
+        ChargerDonnees()
+        ChargerProduits()
+    End Sub
+    Private Sub ChargerDonnees()
+        Dim query As String = " SELECT praticien.nom, visite.datevisite, motif.libelle, visite.bilan
+                                FROM praticien, visite, produit, echantillon, motif
+                                WHERE praticien.id = visite.idpraticien
+                                AND visite.id = echantillon.idvisite
+                                AND echantillon.codeproduit = produit.code
+                                AND visite.idmotif = motif.id
+                                AND visite.id = :idVisite;"
+        myCommand.Connection = myConnection
+        myCommand.CommandText = query
+        myCommand.Parameters.Clear()
+        myCommand.Parameters.AddWithValue(":idVisite", numeroCR)
+        myReader = myCommand.ExecuteReader()
+        If myReader.Read() Then
+            Nom_Praticien.Text = myReader.GetString(0)
+            Date_Visite.Text = myReader.GetDateTime(1).ToString("dd/MM/yyyy")
+            Motif.Text = myReader.GetString(2)
+            TextBox_Bilan.Text = myReader.GetString(3)
         End If
-        Label7.Text = motifText                 ' Motif
-
-        TextBox1.Text = BilanVisiteSelectionne  ' Bilan
-        TextBox1.Enabled = False                ' Fenêtre en lecture seule
-
-        ' Affichage des Produits et Échantillons
-        DeserializeProductsSamples(ProduitsEchantillonsSerialises)
+        myReader.Close()
+    End Sub
+    Private Sub ChargerProduits()
+        Dim query As String = " SELECT produit.libelle, echantillon.quantite
+                                FROM produit, echantillon
+                                WHERE echantillon.codeproduit = produit.code
+                                AND echantillon.idvisite = :idVisite;"
+        myCommand.Connection = myConnection
+        myCommand.CommandText = query
+        myCommand.Parameters.Clear()
+        myCommand.Parameters.AddWithValue(":idVisite", numeroCR)
+        myReader = myCommand.ExecuteReader()
+        While myReader.Read()
+            DataGridView_Produits.Rows.Add(myReader.GetString(0), myReader.GetString(1))
+        End While
+        myReader.Close()
     End Sub
 End Class
