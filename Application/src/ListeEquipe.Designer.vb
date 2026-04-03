@@ -24,11 +24,11 @@ Partial Class ListeEquipe
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ListeEquipe))
         Me.DataGridView_Delegue = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Column_Delegue = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Action = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Column_MatriculeDelegue = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.DataGridView_Delegue, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -37,32 +37,10 @@ Partial Class ListeEquipe
         '
         Me.DataGridView_Delegue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Delegue.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Delegue, Me.Column_Action, Me.Column_MatriculeDelegue})
-        Me.DataGridView_Delegue.Location = New System.Drawing.Point(125, 127)
+        Me.DataGridView_Delegue.Location = New System.Drawing.Point(399, 179)
         Me.DataGridView_Delegue.Name = "DataGridView_Delegue"
         Me.DataGridView_Delegue.Size = New System.Drawing.Size(550, 250)
         Me.DataGridView_Delegue.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!)
-        Me.Label1.Location = New System.Drawing.Point(288, 29)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(225, 31)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Liste des équipes"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(703, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(126, 89)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
         '
         'Column_Delegue
         '
@@ -85,11 +63,33 @@ Partial Class ListeEquipe
         Me.Column_MatriculeDelegue.Name = "Column_MatriculeDelegue"
         Me.Column_MatriculeDelegue.Visible = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!)
+        Me.Label1.Location = New System.Drawing.Point(562, 24)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(225, 31)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Liste des équipes"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(1210, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(126, 89)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 18
+        Me.PictureBox1.TabStop = False
+        '
         'ListeEquipe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(842, 516)
+        Me.ClientSize = New System.Drawing.Size(1349, 609)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridView_Delegue)

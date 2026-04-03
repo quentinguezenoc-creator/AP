@@ -19,6 +19,9 @@ Public Class ConsulterActiviteEquipe
             MessageBox.Show("Erreur lors de la connexion à la base de données : " & ex.Message)
         End Try
         ChargerVisiteur()
+        DataGridView_Motif.ReadOnly = True
+        DataGridView_Praticien.ReadOnly = True
+        DataGridView_Visiteur.ReadOnly = True
     End Sub
 
     Private Sub Button_Consulter_Click(sender As Object, e As EventArgs) Handles Button_Consulter.Click
@@ -35,7 +38,7 @@ Public Class ConsulterActiviteEquipe
         Dim f As New ConsulterActiviteVisiteur
         f.MatriculeVisiteur = DataGridView_Visiteur.Rows(e.RowIndex).Cells("Column_MatriculeVisiteur").Value.ToString() ' Enregistre le matricule du visiteur sélectionné dans le paramètre de la fenêtre
         f.Text = "Activité du visiteur " & DataGridView_Visiteur.Rows(e.RowIndex).Cells("Column_Prenom").Value.ToString() & " " & DataGridView_Visiteur.Rows(e.RowIndex).Cells("Column_Nom").Value.ToString()
-        f.Show()
+        Me.BeginInvoke(Sub() f.Show())
     End Sub
     ' Méthode qui charge les visiteurs de l'équipe du délégué
     Private Sub ChargerVisiteur()

@@ -7,7 +7,6 @@ Public Class ConsulterCompteRendu
     Dim myCommand As New Odbc.OdbcCommand
     Dim myReader As OdbcDataReader
     Private Sub ConsulterCompteRendu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TextBox_Bilan.Enabled = False
         myConnection.ConnectionString = GlobalData.ConnexionString ' Chaine de connexion à la base de données
         Try
             myConnection.Open() ' Connexion à la base de données
@@ -16,6 +15,8 @@ Public Class ConsulterCompteRendu
         End Try
         ChargerDonnees()
         ChargerProduits()
+        DataGridView_Produits.ReadOnly = True
+        TextBox_Bilan.Enabled = False
     End Sub
     Private Sub ChargerDonnees()
         Dim query As String = " SELECT praticien.nom, visite.datevisite, motif.libelle, visite.bilan

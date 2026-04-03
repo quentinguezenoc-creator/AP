@@ -60,7 +60,7 @@ Partial Class ConsulterActiviteEquipe
         Me.Label1.AutoSize = True
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!)
-        Me.Label1.Location = New System.Drawing.Point(551, 29)
+        Me.Label1.Location = New System.Drawing.Point(554, 24)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(239, 31)
         Me.Label1.TabIndex = 2
@@ -70,7 +70,7 @@ Partial Class ConsulterActiviteEquipe
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(1202, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(1211, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(126, 89)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -79,14 +79,14 @@ Partial Class ConsulterActiviteEquipe
         '
         'DateTimePicker_Fin
         '
-        Me.DateTimePicker_Fin.Location = New System.Drawing.Point(375, 55)
+        Me.DateTimePicker_Fin.Location = New System.Drawing.Point(414, 67)
         Me.DateTimePicker_Fin.Name = "DateTimePicker_Fin"
         Me.DateTimePicker_Fin.Size = New System.Drawing.Size(177, 20)
         Me.DateTimePicker_Fin.TabIndex = 3
         '
         'DateTimePicker_Debut
         '
-        Me.DateTimePicker_Debut.Location = New System.Drawing.Point(112, 55)
+        Me.DateTimePicker_Debut.Location = New System.Drawing.Point(151, 67)
         Me.DateTimePicker_Debut.Name = "DateTimePicker_Debut"
         Me.DateTimePicker_Debut.Size = New System.Drawing.Size(177, 20)
         Me.DateTimePicker_Debut.TabIndex = 2
@@ -94,7 +94,7 @@ Partial Class ConsulterActiviteEquipe
         'Label_Debut
         '
         Me.Label_Debut.AutoSize = True
-        Me.Label_Debut.Location = New System.Drawing.Point(25, 58)
+        Me.Label_Debut.Location = New System.Drawing.Point(64, 70)
         Me.Label_Debut.Name = "Label_Debut"
         Me.Label_Debut.Size = New System.Drawing.Size(81, 13)
         Me.Label_Debut.TabIndex = 22
@@ -103,7 +103,7 @@ Partial Class ConsulterActiviteEquipe
         'Label_Fin
         '
         Me.Label_Fin.AutoSize = True
-        Me.Label_Fin.Location = New System.Drawing.Point(304, 58)
+        Me.Label_Fin.Location = New System.Drawing.Point(343, 70)
         Me.Label_Fin.Name = "Label_Fin"
         Me.Label_Fin.Size = New System.Drawing.Size(65, 13)
         Me.Label_Fin.TabIndex = 23
@@ -113,9 +113,9 @@ Partial Class ConsulterActiviteEquipe
         '
         Me.DataGridView_Praticien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Praticien.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Praticien, Me.Column_Nombre})
-        Me.DataGridView_Praticien.Location = New System.Drawing.Point(25, 132)
+        Me.DataGridView_Praticien.Location = New System.Drawing.Point(19, 132)
         Me.DataGridView_Praticien.Name = "DataGridView_Praticien"
-        Me.DataGridView_Praticien.Size = New System.Drawing.Size(310, 200)
+        Me.DataGridView_Praticien.Size = New System.Drawing.Size(355, 331)
         Me.DataGridView_Praticien.TabIndex = 24
         '
         'Column_Praticien
@@ -133,7 +133,7 @@ Partial Class ConsulterActiviteEquipe
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(299, 12)
+        Me.Label2.Location = New System.Drawing.Point(338, 12)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(93, 20)
         Me.Label2.TabIndex = 26
@@ -153,13 +153,13 @@ Partial Class ConsulterActiviteEquipe
         Me.Panel1.Controls.Add(Me.DateTimePicker_Fin)
         Me.Panel1.Location = New System.Drawing.Point(12, 118)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(691, 350)
+        Me.Panel1.Size = New System.Drawing.Size(768, 484)
         Me.Panel1.TabIndex = 27
         '
         'Label_Nb_Visite
         '
         Me.Label_Nb_Visite.AutoSize = True
-        Me.Label_Nb_Visite.Location = New System.Drawing.Point(610, 114)
+        Me.Label_Nb_Visite.Location = New System.Drawing.Point(730, 116)
         Me.Label_Nb_Visite.Name = "Label_Nb_Visite"
         Me.Label_Nb_Visite.Size = New System.Drawing.Size(0, 13)
         Me.Label_Nb_Visite.TabIndex = 32
@@ -167,7 +167,7 @@ Partial Class ConsulterActiviteEquipe
         'Nb_Visite
         '
         Me.Nb_Visite.AutoSize = True
-        Me.Nb_Visite.Location = New System.Drawing.Point(488, 114)
+        Me.Nb_Visite.Location = New System.Drawing.Point(608, 116)
         Me.Nb_Visite.Name = "Nb_Visite"
         Me.Nb_Visite.Size = New System.Drawing.Size(115, 13)
         Me.Nb_Visite.TabIndex = 31
@@ -175,7 +175,7 @@ Partial Class ConsulterActiviteEquipe
         '
         'Button_Consulter
         '
-        Me.Button_Consulter.Location = New System.Drawing.Point(590, 53)
+        Me.Button_Consulter.Location = New System.Drawing.Point(629, 65)
         Me.Button_Consulter.Name = "Button_Consulter"
         Me.Button_Consulter.Size = New System.Drawing.Size(75, 23)
         Me.Button_Consulter.TabIndex = 1
@@ -186,9 +186,9 @@ Partial Class ConsulterActiviteEquipe
         '
         Me.DataGridView_Motif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Motif.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Motif, Me.DataGridViewTextBoxColumn2})
-        Me.DataGridView_Motif.Location = New System.Drawing.Point(355, 132)
+        Me.DataGridView_Motif.Location = New System.Drawing.Point(394, 132)
         Me.DataGridView_Motif.Name = "DataGridView_Motif"
-        Me.DataGridView_Motif.Size = New System.Drawing.Size(310, 200)
+        Me.DataGridView_Motif.Size = New System.Drawing.Size(355, 331)
         Me.DataGridView_Motif.TabIndex = 29
         '
         'Column_Motif
@@ -204,11 +204,12 @@ Partial Class ConsulterActiviteEquipe
         '
         'DataGridView_Visiteur
         '
+        Me.DataGridView_Visiteur.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView_Visiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Visiteur.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Nom, Me.Column_Prenom, Me.Column_Actions, Me.Column_MatriculeVisiteur})
-        Me.DataGridView_Visiteur.Location = New System.Drawing.Point(8, 77)
+        Me.DataGridView_Visiteur.Location = New System.Drawing.Point(17, 65)
         Me.DataGridView_Visiteur.Name = "DataGridView_Visiteur"
-        Me.DataGridView_Visiteur.Size = New System.Drawing.Size(577, 255)
+        Me.DataGridView_Visiteur.Size = New System.Drawing.Size(511, 395)
         Me.DataGridView_Visiteur.TabIndex = 25
         '
         'Column_Nom
@@ -240,16 +241,16 @@ Partial Class ConsulterActiviteEquipe
         '
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.DataGridView_Visiteur)
-        Me.Panel2.Location = New System.Drawing.Point(731, 118)
+        Me.Panel2.Location = New System.Drawing.Point(786, 118)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(597, 350)
+        Me.Panel2.Size = New System.Drawing.Size(542, 484)
         Me.Panel2.TabIndex = 28
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(231, 22)
+        Me.Label3.Location = New System.Drawing.Point(204, 12)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(134, 20)
         Me.Label3.TabIndex = 26
@@ -259,7 +260,7 @@ Partial Class ConsulterActiviteEquipe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1340, 521)
+        Me.ClientSize = New System.Drawing.Size(1349, 609)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)

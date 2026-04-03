@@ -4,6 +4,7 @@ Imports System.Data
 Public Class ListeEquipe
     Private Sub ListeEquipe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ChargerDelegues()
+        DataGridView_Delegue.ReadOnly = True
     End Sub
 
     Private Sub ChargerDelegues()
@@ -54,6 +55,6 @@ Public Class ListeEquipe
         Dim f As New ConsulterActiviteEquipe()
         f.MatriculeDelegue = DataGridView_Delegue.Rows(e.RowIndex).Cells("Column_MatriculeDelegue").Value.ToString()
         f.Text = "Activité de l'équipe de " & DataGridView_Delegue.Rows(e.RowIndex).Cells("Column_Delegue").Value.ToString()
-        f.Show()
+        Me.BeginInvoke(Sub() f.Show())
     End Sub
 End Class

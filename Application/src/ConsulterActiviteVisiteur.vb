@@ -17,6 +17,9 @@ Public Class ConsulterActiviteVisiteur
             MessageBox.Show("Erreur lors de la connexion à la base de données : " & ex.Message)
         End Try
         ChargerCompteRendu()
+        DataGridView_CR.ReadOnly = True
+        DataGridView_Motif.ReadOnly = True
+        DataGridView_Praticien.ReadOnly = True
     End Sub
 
     Private Sub Button_Consulter_Click(sender As Object, e As EventArgs) Handles Button_Consulter.Click
@@ -33,7 +36,7 @@ Public Class ConsulterActiviteVisiteur
         Dim f As New ConsulterCompteRendu
         f.Text = "Compte-rendu de la visite du " & DataGridView_CR.Rows(e.RowIndex).Cells("Column_DateVisite").Value.ToString & " chez le praticien " & DataGridView_CR.Rows(e.RowIndex).Cells("Column_PraticienCR").Value.ToString()
         f.numeroCR = DataGridView_CR.Rows(e.RowIndex).Cells("Column_Numero").Value
-        f.Show()
+        Me.BeginInvoke(Sub() f.Show())
     End Sub
     ' Méthode qui charge les comptes-rendus du visiteur
     Public Sub ChargerCompteRendu()
