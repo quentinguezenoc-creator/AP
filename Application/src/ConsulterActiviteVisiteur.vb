@@ -1,7 +1,6 @@
 ﻿Imports System.Data.Odbc
 
 Public Class ConsulterActiviteVisiteur
-    Dim myConnection As New Odbc.OdbcConnection
     Dim myCommand As New Odbc.OdbcCommand
     Dim myReader As OdbcDataReader
     Public MatriculeVisiteur As String
@@ -10,12 +9,6 @@ Public Class ConsulterActiviteVisiteur
         Nb_Visite.Visible = False
         DataGridView_Praticien.Visible = False
         DataGridView_Motif.Visible = False
-        myConnection.ConnectionString = GlobalData.ConnexionString ' Chaine de connexion à la base de données
-        Try
-            myConnection.Open() ' Connexion à la base de données
-        Catch ex As Exception
-            MessageBox.Show("Erreur lors de la connexion à la base de données : " & ex.Message)
-        End Try
         ChargerCompteRendu()
         DataGridView_CR.ReadOnly = True
         DataGridView_Motif.ReadOnly = True
@@ -34,8 +27,8 @@ Public Class ConsulterActiviteVisiteur
 
     Private Sub DataGridView_CR_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_CR.CellContentClick
         Dim f As New ConsulterCompteRendu
-        f.Text = "Compte-rendu de la visite du " & DataGridView_CR.Rows(e.RowIndex).Cells("Column_DateVisite").Value.ToString & " chez le praticien " & DataGridView_CR.Rows(e.RowIndex).Cells("Column_PraticienCR").Value.ToString()
-        f.numeroCR = DataGridView_CR.Rows(e.RowIndex).Cells("Column_Numero").Value
+        f.Text = "Compte-rendu de la visite du " & DataGridView_CR.Rows(e.RowIndex).Cells("Column_Date").Value.ToString & " chez le praticien " & DataGridView_CR.Rows(e.RowIndex).Cells("Column_PraticienCR").Value.ToString()
+        f.numeroCR = DataGridView_CR.Rows(e.RowIndex).Cells("Column_Id").Value
         Me.BeginInvoke(Sub() f.Show())
     End Sub
     ' Méthode qui charge les comptes-rendus du visiteur
@@ -45,7 +38,7 @@ Public Class ConsulterActiviteVisiteur
                                FROM praticien, visite
                                WHERE praticien.id = visite.idpraticien
                                AND idutilisateur = :matricule;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":matricule", MatriculeVisiteur)
@@ -68,7 +61,7 @@ Public Class ConsulterActiviteVisiteur
                                WHERE datevisite BETWEEN TO_DATE('" & dateDebutStr & "', 'DD/MM/YY')
                                                     AND TO_DATE('" & dateFinStr & "', 'DD/MM/YY')
                                AND idutilisateur = :matricule;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":matricule", MatriculeVisiteur)
@@ -91,7 +84,7 @@ Public Class ConsulterActiviteVisiteur
                                                   AND TO_DATE('" & dateFinStr & "', 'DD/MM/YY')
                                AND idutilisateur = :matricule
                                GROUP BY praticien.id, praticien.nom;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":matricule", MatriculeVisiteur)
@@ -115,7 +108,7 @@ Public Class ConsulterActiviteVisiteur
                                                   AND TO_DATE('" & dateFinStr & "', 'DD/MM/YY')
                                AND idutilisateur = :matricule
                                GROUP BY motif.id, motif.libelle;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":matricule", MatriculeVisiteur)

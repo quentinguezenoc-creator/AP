@@ -35,6 +35,10 @@ Partial Class ListeEquipe
         '
         'DataGridView_Delegue
         '
+        Me.DataGridView_Delegue.AllowUserToAddRows = False
+        Me.DataGridView_Delegue.AllowUserToDeleteRows = False
+        Me.DataGridView_Delegue.AllowUserToResizeColumns = False
+        Me.DataGridView_Delegue.AllowUserToResizeRows = False
         Me.DataGridView_Delegue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Delegue.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Delegue, Me.Column_Action, Me.Column_MatriculeDelegue})
         Me.DataGridView_Delegue.Location = New System.Drawing.Point(399, 179)
@@ -89,6 +93,7 @@ Partial Class ListeEquipe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.AliceBlue
         Me.ClientSize = New System.Drawing.Size(1349, 609)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)

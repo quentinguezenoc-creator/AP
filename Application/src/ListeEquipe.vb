@@ -2,6 +2,9 @@
 Imports System.Data
 
 Public Class ListeEquipe
+    Dim myCommand As New Odbc.OdbcCommand
+    Dim myReader As OdbcDataReader
+
     Private Sub ListeEquipe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ChargerDelegues()
         DataGridView_Delegue.ReadOnly = True
@@ -16,8 +19,6 @@ Public Class ListeEquipe
             Return
         End If
 
-        Dim myConnection As New Odbc.OdbcConnection(GlobalData.ConnexionString)
-        Dim myCommand As New Odbc.OdbcCommand
 
         ' Requête SQL pour obtenir la liste des délégués sous la responsabilité du Responsable
         ' ASSUMPTION: La table Delegue contient une colonne matriculeResponsable
@@ -28,13 +29,11 @@ Public Class ListeEquipe
                               "WHERE T1.matriculeResponsable = :matricule"
 
         Try
-            myConnection.Open()
-            myCommand.Connection = myConnection
+            myCommand.Connection = GlobalData.myConnection
             myCommand.CommandText = query
             myCommand.Parameters.Clear()
             myCommand.Parameters.AddWithValue(":matricule", matriculeResponsable)
-
-            Dim myReader As OdbcDataReader = myCommand.ExecuteReader()
+            myReader = myCommand.ExecuteReader()
             DataGridView_Delegue.Rows.Clear()
 
             While myReader.Read()
@@ -43,7 +42,6 @@ Public Class ListeEquipe
             End While
 
             myReader.Close()
-            myConnection.Close()
 
         Catch ex As OdbcException
             MessageBox.Show("Erreur Oracle lors du chargement des délégués : " & ex.Message)

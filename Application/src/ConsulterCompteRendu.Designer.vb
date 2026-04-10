@@ -65,7 +65,7 @@ Partial Class ConsulterCompteRendu
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(41, 184)
+        Me.Label2.Location = New System.Drawing.Point(62, 184)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(54, 13)
         Me.Label2.TabIndex = 21
@@ -74,16 +74,15 @@ Partial Class ConsulterCompteRendu
         'Nom_Praticien
         '
         Me.Nom_Praticien.AutoSize = True
-        Me.Nom_Praticien.Location = New System.Drawing.Point(101, 184)
+        Me.Nom_Praticien.Location = New System.Drawing.Point(122, 184)
         Me.Nom_Praticien.Name = "Nom_Praticien"
-        Me.Nom_Praticien.Size = New System.Drawing.Size(39, 13)
+        Me.Nom_Praticien.Size = New System.Drawing.Size(0, 13)
         Me.Nom_Praticien.TabIndex = 22
-        Me.Nom_Praticien.Text = "Label3"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(320, 184)
+        Me.Label4.Location = New System.Drawing.Point(419, 184)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(89, 13)
         Me.Label4.TabIndex = 23
@@ -92,16 +91,15 @@ Partial Class ConsulterCompteRendu
         'Date_Visite
         '
         Me.Date_Visite.AutoSize = True
-        Me.Date_Visite.Location = New System.Drawing.Point(416, 184)
+        Me.Date_Visite.Location = New System.Drawing.Point(508, 184)
         Me.Date_Visite.Name = "Date_Visite"
-        Me.Date_Visite.Size = New System.Drawing.Size(39, 13)
+        Me.Date_Visite.Size = New System.Drawing.Size(0, 13)
         Me.Date_Visite.TabIndex = 24
-        Me.Date_Visite.Text = "Label5"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(41, 370)
+        Me.Label6.Location = New System.Drawing.Point(62, 370)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(89, 13)
         Me.Label6.TabIndex = 25
@@ -110,16 +108,15 @@ Partial Class ConsulterCompteRendu
         'Motif
         '
         Me.Motif.AutoSize = True
-        Me.Motif.Location = New System.Drawing.Point(137, 370)
+        Me.Motif.Location = New System.Drawing.Point(158, 370)
         Me.Motif.Name = "Motif"
-        Me.Motif.Size = New System.Drawing.Size(39, 13)
+        Me.Motif.Size = New System.Drawing.Size(0, 13)
         Me.Motif.TabIndex = 26
-        Me.Motif.Text = "Label7"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(44, 420)
+        Me.Label8.Location = New System.Drawing.Point(65, 420)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(89, 13)
         Me.Label8.TabIndex = 27
@@ -128,7 +125,7 @@ Partial Class ConsulterCompteRendu
         'TextBox_Bilan
         '
         Me.TextBox_Bilan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox_Bilan.Location = New System.Drawing.Point(47, 449)
+        Me.TextBox_Bilan.Location = New System.Drawing.Point(68, 449)
         Me.TextBox_Bilan.Multiline = True
         Me.TextBox_Bilan.Name = "TextBox_Bilan"
         Me.TextBox_Bilan.Size = New System.Drawing.Size(500, 60)
@@ -136,9 +133,13 @@ Partial Class ConsulterCompteRendu
         '
         'DataGridView_Produits
         '
+        Me.DataGridView_Produits.AllowUserToAddRows = False
+        Me.DataGridView_Produits.AllowUserToDeleteRows = False
+        Me.DataGridView_Produits.AllowUserToResizeColumns = False
+        Me.DataGridView_Produits.AllowUserToResizeRows = False
         Me.DataGridView_Produits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Produits.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Produit, Me.Column_Echantillon})
-        Me.DataGridView_Produits.Location = New System.Drawing.Point(44, 240)
+        Me.DataGridView_Produits.Location = New System.Drawing.Point(65, 240)
         Me.DataGridView_Produits.Name = "DataGridView_Produits"
         Me.DataGridView_Produits.Size = New System.Drawing.Size(503, 100)
         Me.DataGridView_Produits.TabIndex = 29
@@ -159,7 +160,7 @@ Partial Class ConsulterCompteRendu
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(41, 224)
+        Me.Label9.Location = New System.Drawing.Point(62, 224)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(100, 13)
         Me.Label9.TabIndex = 30
@@ -169,6 +170,7 @@ Partial Class ConsulterCompteRendu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.AliceBlue
         Me.ClientSize = New System.Drawing.Size(631, 626)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.DataGridView_Produits)

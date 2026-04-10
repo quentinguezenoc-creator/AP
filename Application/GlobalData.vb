@@ -11,4 +11,13 @@ Module GlobalData
     ' Rôle de l'utilisateur connecté (pour déterminer les droits et la navigation)
     Public RoleUtilisateurConnecte As String = String.Empty
 
+    ' Connexion à la base de données (partagée pour éviter les connexions multiples)
+    Public myConnection As New OdbcConnection(ConnexionString)
+
+    ' Prénom de l'utilisateur connecté (pour affichage dans les titres de fenêtres)
+    Public PrenomUtilisateurConnecte As String = String.Empty
+
+    ' Nom de l'utilisateur connecté (pour affichage dans les titres de fenêtres)
+    Public NomUtilisateurConnecte As String = String.Empty
+
 End Module

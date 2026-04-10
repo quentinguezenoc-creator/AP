@@ -1,23 +1,19 @@
 ﻿Imports System.Data.Common
 Imports System.Data.Odbc
 
-
 Public Class ConsulterActiviteEquipe
-    Dim myConnection As New Odbc.OdbcConnection
     Dim myCommand As New Odbc.OdbcCommand
     Dim myReader As OdbcDataReader
     Public MatriculeDelegue As String
     Private Sub ConsulterActiviteEquipe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Button_CR.Visible = False ' Masque le bouton de gestion des comptes-rendus par défaut
+        If GlobalData.RoleUtilisateurConnecte = "Delegue" Then
+            Button_CR.Visible = True ' Affiche le bouton de gestion des comptes-rendus uniquement si l'utilisateur connecté est un délégué
+        End If
         Label_Nb_Visite.Visible = False
         Nb_Visite.Visible = False
         DataGridView_Praticien.Visible = False
         DataGridView_Motif.Visible = False
-        myConnection.ConnectionString = GlobalData.ConnexionString ' Chaine de connexion à la base de données
-        Try
-            myConnection.Open() ' Connexion à la base de données
-        Catch ex As Exception
-            MessageBox.Show("Erreur lors de la connexion à la base de données : " & ex.Message)
-        End Try
         ChargerVisiteur()
         DataGridView_Motif.ReadOnly = True
         DataGridView_Praticien.ReadOnly = True
@@ -47,7 +43,7 @@ Public Class ConsulterActiviteEquipe
                                FROM utilisateur, visiteur
                                WHERE visiteur.matriculevisiteur = utilisateur.matricule
                                AND visiteur.matriculedelegue = :matricule ;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":matricule", MatriculeDelegue)
@@ -72,7 +68,7 @@ Public Class ConsulterActiviteEquipe
                                AND idutilisateur IN (SELECT matriculevisiteur
                                                      FROM visiteur
                                                      WHERE matriculedelegue = :matricule);"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":matricule", MatriculeDelegue)
@@ -97,7 +93,7 @@ Public Class ConsulterActiviteEquipe
                                                      FROM visiteur
                                                      WHERE matriculedelegue = :matricule)
                                GROUP BY praticien.id, praticien.nom;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":matricule", MatriculeDelegue)
@@ -123,7 +119,7 @@ Public Class ConsulterActiviteEquipe
                                                      FROM visiteur
                                                      WHERE matriculedelegue = :matricule)
                                GROUP BY motif.id, motif.libelle;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":matricule", MatriculeDelegue)
@@ -134,5 +130,12 @@ Public Class ConsulterActiviteEquipe
             DataGridView_Motif.Rows.Add(myReader.GetString(0), myReader.GetString(1)) ' Remplit le DataGridView avec le libellé du motif et le nombre de visites
         End While
         myReader.Close()
+    End Sub
+
+    Private Sub Button_CR_Click(sender As Object, e As EventArgs) Handles Button_CR.Click
+        ' Ouverture de la fenêtre de gestion des comptes-rendus du délégué sélectionné
+        Dim f As New GestionCompte
+        f.Text = "Gestion des comptes-rendus"
+        Me.BeginInvoke(Sub() f.Show())
     End Sub
 End Class

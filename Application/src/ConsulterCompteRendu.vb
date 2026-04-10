@@ -3,16 +3,9 @@ Imports System.Data.Odbc
 
 Public Class ConsulterCompteRendu
     Public numeroCR As Integer
-    Dim myConnection As New Odbc.OdbcConnection
     Dim myCommand As New Odbc.OdbcCommand
     Dim myReader As OdbcDataReader
     Private Sub ConsulterCompteRendu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        myConnection.ConnectionString = GlobalData.ConnexionString ' Chaine de connexion à la base de données
-        Try
-            myConnection.Open() ' Connexion à la base de données
-        Catch ex As Exception
-            MessageBox.Show("Erreur lors de la connexion à la base de données : " & ex.Message)
-        End Try
         ChargerDonnees()
         ChargerProduits()
         DataGridView_Produits.ReadOnly = True
@@ -26,7 +19,7 @@ Public Class ConsulterCompteRendu
                                 AND echantillon.codeproduit = produit.code
                                 AND visite.idmotif = motif.id
                                 AND visite.id = :idVisite;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":idVisite", numeroCR)
@@ -44,7 +37,7 @@ Public Class ConsulterCompteRendu
                                 FROM produit, echantillon
                                 WHERE echantillon.codeproduit = produit.code
                                 AND echantillon.idvisite = :idVisite;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":idVisite", numeroCR)

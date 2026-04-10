@@ -3,7 +3,6 @@ Imports System.Data.Common
 Imports System.Data.Odbc
 
 Public Class GestionCompte
-    Dim myConnection As New Odbc.OdbcConnection
     Dim myCommand As New Odbc.OdbcCommand
     Dim myReader As OdbcDataReader
     Dim myCommandProduits As New Odbc.OdbcCommand
@@ -11,12 +10,6 @@ Public Class GestionCompte
     Dim mode As String = "C" ' Variable pour différencier les modes de création et de modification
     Dim idCompteRendu As Integer ' Variable pour stocker l'id du compte-rendu en cours de modification
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        myConnection.ConnectionString = GlobalData.ConnexionString ' Chaine de connexion à la base de données
-        Try
-            myConnection.Open() ' Connexion à la base de données
-        Catch ex As Exception
-            MessageBox.Show("Erreur lors de la connexion à la base de données : " & ex.Message)
-        End Try
         LoadCompteRendu()
         LoadProduits()
         LoadPraticiens()
@@ -29,7 +22,7 @@ Public Class GestionCompte
                                FROM visite, praticien
                                WHERE visite.idpraticien = praticien.id
                                AND visite.idutilisateur = :matricule ;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myCommand.Parameters.AddWithValue(":matricule", GlobalData.MatriculeUtilisateurConnecte)
@@ -46,7 +39,7 @@ Public Class GestionCompte
     Private Sub LoadProduits()
         Dim query As String = "SELECT produit.code, produit.libelle
                                FROM produit;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myReader = myCommand.ExecuteReader()
@@ -70,7 +63,7 @@ Public Class GestionCompte
     Private Sub LoadPraticiens()
         Dim query As String = "SELECT praticien.id, praticien.nom
                                FROM praticien;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myReader = myCommand.ExecuteReader()
@@ -91,7 +84,7 @@ Public Class GestionCompte
     Private Sub LoadMotifs()
         Dim query As String = "SELECT motif.id, motif.libelle
                                FROM motif;"
-        myCommand.Connection = myConnection
+        myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
         myReader = myCommand.ExecuteReader()
@@ -109,14 +102,14 @@ Public Class GestionCompte
     End Sub
 
     Private Sub ButtonValider_Click(sender As Object, e As EventArgs) Handles ButtonValider.Click
-        Dim transaction = myConnection.BeginTransaction()
+        Dim transaction = GlobalData.myConnection.BeginTransaction()
         myCommand.Transaction = transaction
         Try
             If mode = "C" Then
                 ' Insertion dans la table visite avec récupération de l'id généré
                 Dim query As String = "INSERT INTO visite (idpraticien, idutilisateur, idmotif, datevisite, bilan)
                                    VALUES (:idPraticien, :matricule, :idMotif, :dateVisite, :bilan)"
-                myCommand.Connection = myConnection
+                myCommand.Connection = GlobalData.myConnection
                 myCommand.CommandText = query
                 myCommand.Parameters.Clear()
                 myCommand.Parameters.Add(":idPraticien", OdbcType.Int).Value = Convert.ToInt32(ComboBox_Praticien.SelectedValue)
@@ -155,7 +148,7 @@ Public Class GestionCompte
                                            datevisite = :dateVisite,
                                            bilan = :bilan
                                        WHERE id = :id"
-                myCommand.Connection = myConnection
+                myCommand.Connection = GlobalData.myConnection
                 myCommand.CommandText = query
                 myCommand.Parameters.Clear()
                 myCommand.Parameters.Add(":idPraticien", OdbcType.Int).Value = Convert.ToInt32(ComboBox_Praticien.SelectedValue)
@@ -209,7 +202,7 @@ Public Class GestionCompte
             Dim query As String = "SELECT idpraticien, idmotif, datevisite, bilan
                                    FROM visite
                                    WHERE id = :idCompteRendu"
-            myCommand.Connection = myConnection
+            myCommand.Connection = GlobalData.myConnection
             myCommand.CommandText = query
             myCommand.Parameters.Clear()
             myCommand.Parameters.Add(":idCompteRendu", OdbcType.Int).Value = idCompteRendu
@@ -227,7 +220,7 @@ Public Class GestionCompte
             Dim queryEchantillon As String = "SELECT codeproduit, quantite
                                               FROM echantillon
                                               WHERE idvisite = :idCompteRendu"
-            myCommandProduits.Connection = myConnection
+            myCommandProduits.Connection = GlobalData.myConnection
             myCommandProduits.CommandText = queryEchantillon
             myCommandProduits.Parameters.Clear()
             myCommandProduits.Parameters.Add(":idCompteRendu", OdbcType.Int).Value = idCompteRendu
@@ -247,6 +240,12 @@ Public Class GestionCompte
             myReaderProduits.Close()
 
             mode = "M"
+        ElseIf e.RowIndex >= 0 AndAlso e.ColumnIndex = DataGridView_CR.Columns("Column_Voir").Index Then
+            Dim row As DataGridViewRow = DataGridView_CR.Rows(e.RowIndex)
+            Dim idCR As Integer = Convert.ToInt32(row.Cells("Column_Id").Value)
+            Dim f As New ConsulterCompteRendu()
+            f.numeroCR = idCR
+            f.Show()
         End If
     End Sub
 

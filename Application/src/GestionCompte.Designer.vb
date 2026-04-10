@@ -45,11 +45,11 @@ Partial Class GestionCompte
         Me.AjouterCompteRendu = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.ButtonEffacer = New System.Windows.Forms.Button()
         Me.DataGridView_Produits = New System.Windows.Forms.DataGridView()
         Me.Id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column_Produit = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Column_Echantillon = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ButtonEffacer = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_CR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -95,12 +95,14 @@ Partial Class GestionCompte
         '
         'ButtonValider
         '
+        Me.ButtonValider.BackColor = System.Drawing.Color.SkyBlue
+        Me.ButtonValider.ForeColor = System.Drawing.Color.White
         Me.ButtonValider.Location = New System.Drawing.Point(182, 440)
         Me.ButtonValider.Name = "ButtonValider"
         Me.ButtonValider.Size = New System.Drawing.Size(75, 23)
         Me.ButtonValider.TabIndex = 8
         Me.ButtonValider.Text = "Valider"
-        Me.ButtonValider.UseVisualStyleBackColor = True
+        Me.ButtonValider.UseVisualStyleBackColor = False
         '
         'DateTimeVisite
         '
@@ -172,6 +174,10 @@ Partial Class GestionCompte
         '
         'DataGridView_CR
         '
+        Me.DataGridView_CR.AllowUserToAddRows = False
+        Me.DataGridView_CR.AllowUserToDeleteRows = False
+        Me.DataGridView_CR.AllowUserToResizeColumns = False
+        Me.DataGridView_CR.AllowUserToResizeRows = False
         Me.DataGridView_CR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView_CR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_CR.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Id, Me.Column_Praticien, Me.Column_DateVisite, Me.Column_Modifier, Me.Column_Voir})
@@ -269,8 +275,21 @@ Partial Class GestionCompte
         Me.Panel2.Size = New System.Drawing.Size(532, 477)
         Me.Panel2.TabIndex = 23
         '
+        'ButtonEffacer
+        '
+        Me.ButtonEffacer.BackColor = System.Drawing.Color.SkyBlue
+        Me.ButtonEffacer.ForeColor = System.Drawing.Color.White
+        Me.ButtonEffacer.Location = New System.Drawing.Point(275, 440)
+        Me.ButtonEffacer.Name = "ButtonEffacer"
+        Me.ButtonEffacer.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonEffacer.TabIndex = 20
+        Me.ButtonEffacer.Text = "Effacer"
+        Me.ButtonEffacer.UseVisualStyleBackColor = False
+        '
         'DataGridView_Produits
         '
+        Me.DataGridView_Produits.AllowUserToResizeColumns = False
+        Me.DataGridView_Produits.AllowUserToResizeRows = False
         Me.DataGridView_Produits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Produits.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id, Me.Column_Produit, Me.Column_Echantillon})
         Me.DataGridView_Produits.Location = New System.Drawing.Point(31, 110)
@@ -297,19 +316,11 @@ Partial Class GestionCompte
         Me.Column_Echantillon.HeaderText = "Échantillon"
         Me.Column_Echantillon.Name = "Column_Echantillon"
         '
-        'ButtonEffacer
-        '
-        Me.ButtonEffacer.Location = New System.Drawing.Point(275, 440)
-        Me.ButtonEffacer.Name = "ButtonEffacer"
-        Me.ButtonEffacer.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonEffacer.TabIndex = 20
-        Me.ButtonEffacer.Text = "Effacer"
-        Me.ButtonEffacer.UseVisualStyleBackColor = True
-        '
         'GestionCompte
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.AliceBlue
         Me.ClientSize = New System.Drawing.Size(1349, 609)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)

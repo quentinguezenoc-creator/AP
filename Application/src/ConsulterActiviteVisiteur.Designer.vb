@@ -113,15 +113,21 @@ Partial Class ConsulterActiviteVisiteur
         '
         'Button_Consulter
         '
+        Me.Button_Consulter.BackColor = System.Drawing.Color.SkyBlue
+        Me.Button_Consulter.ForeColor = System.Drawing.Color.White
         Me.Button_Consulter.Location = New System.Drawing.Point(629, 65)
         Me.Button_Consulter.Name = "Button_Consulter"
         Me.Button_Consulter.Size = New System.Drawing.Size(75, 23)
         Me.Button_Consulter.TabIndex = 1
         Me.Button_Consulter.Text = "Consulter"
-        Me.Button_Consulter.UseVisualStyleBackColor = True
+        Me.Button_Consulter.UseVisualStyleBackColor = False
         '
         'DataGridView_Praticien
         '
+        Me.DataGridView_Praticien.AllowUserToAddRows = False
+        Me.DataGridView_Praticien.AllowUserToDeleteRows = False
+        Me.DataGridView_Praticien.AllowUserToResizeColumns = False
+        Me.DataGridView_Praticien.AllowUserToResizeRows = False
         Me.DataGridView_Praticien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Praticien.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Praticien, Me.Column_Nombre})
         Me.DataGridView_Praticien.Location = New System.Drawing.Point(19, 132)
@@ -142,6 +148,10 @@ Partial Class ConsulterActiviteVisiteur
         '
         'DataGridView_Motif
         '
+        Me.DataGridView_Motif.AllowUserToAddRows = False
+        Me.DataGridView_Motif.AllowUserToDeleteRows = False
+        Me.DataGridView_Motif.AllowUserToResizeColumns = False
+        Me.DataGridView_Motif.AllowUserToResizeRows = False
         Me.DataGridView_Motif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Motif.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Motif, Me.DataGridViewTextBoxColumn2})
         Me.DataGridView_Motif.Location = New System.Drawing.Point(394, 132)
@@ -176,6 +186,7 @@ Partial Class ConsulterActiviteVisiteur
         Me.DateTimePicker_Debut.Name = "DateTimePicker_Debut"
         Me.DateTimePicker_Debut.Size = New System.Drawing.Size(177, 20)
         Me.DateTimePicker_Debut.TabIndex = 2
+        Me.DateTimePicker_Debut.Value = New Date(2026, 1, 1, 0, 0, 0, 0)
         '
         'Label_Debut
         '
@@ -213,6 +224,10 @@ Partial Class ConsulterActiviteVisiteur
         '
         'DataGridView_CR
         '
+        Me.DataGridView_CR.AllowUserToAddRows = False
+        Me.DataGridView_CR.AllowUserToDeleteRows = False
+        Me.DataGridView_CR.AllowUserToResizeColumns = False
+        Me.DataGridView_CR.AllowUserToResizeRows = False
         Me.DataGridView_CR.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView_CR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_CR.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Id, Me.Column_Date, Me.Column_PraticienCR, Me.Column_Action})
@@ -261,6 +276,7 @@ Partial Class ConsulterActiviteVisiteur
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.AliceBlue
         Me.ClientSize = New System.Drawing.Size(1349, 609)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)

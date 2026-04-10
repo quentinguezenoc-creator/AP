@@ -47,6 +47,7 @@ Partial Class ConsulterActiviteEquipe
         Me.Column_MatriculeVisiteur = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button_CR = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_Praticien, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -90,6 +91,7 @@ Partial Class ConsulterActiviteEquipe
         Me.DateTimePicker_Debut.Name = "DateTimePicker_Debut"
         Me.DateTimePicker_Debut.Size = New System.Drawing.Size(177, 20)
         Me.DateTimePicker_Debut.TabIndex = 2
+        Me.DateTimePicker_Debut.Value = New Date(2026, 1, 1, 0, 0, 0, 0)
         '
         'Label_Debut
         '
@@ -111,6 +113,10 @@ Partial Class ConsulterActiviteEquipe
         '
         'DataGridView_Praticien
         '
+        Me.DataGridView_Praticien.AllowUserToAddRows = False
+        Me.DataGridView_Praticien.AllowUserToDeleteRows = False
+        Me.DataGridView_Praticien.AllowUserToResizeColumns = False
+        Me.DataGridView_Praticien.AllowUserToResizeRows = False
         Me.DataGridView_Praticien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Praticien.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Praticien, Me.Column_Nombre})
         Me.DataGridView_Praticien.Location = New System.Drawing.Point(19, 132)
@@ -175,15 +181,21 @@ Partial Class ConsulterActiviteEquipe
         '
         'Button_Consulter
         '
+        Me.Button_Consulter.BackColor = System.Drawing.Color.SkyBlue
+        Me.Button_Consulter.ForeColor = System.Drawing.Color.White
         Me.Button_Consulter.Location = New System.Drawing.Point(629, 65)
         Me.Button_Consulter.Name = "Button_Consulter"
         Me.Button_Consulter.Size = New System.Drawing.Size(75, 23)
         Me.Button_Consulter.TabIndex = 1
         Me.Button_Consulter.Text = "Consulter"
-        Me.Button_Consulter.UseVisualStyleBackColor = True
+        Me.Button_Consulter.UseVisualStyleBackColor = False
         '
         'DataGridView_Motif
         '
+        Me.DataGridView_Motif.AllowUserToAddRows = False
+        Me.DataGridView_Motif.AllowUserToDeleteRows = False
+        Me.DataGridView_Motif.AllowUserToResizeColumns = False
+        Me.DataGridView_Motif.AllowUserToResizeRows = False
         Me.DataGridView_Motif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Motif.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Motif, Me.DataGridViewTextBoxColumn2})
         Me.DataGridView_Motif.Location = New System.Drawing.Point(394, 132)
@@ -204,6 +216,10 @@ Partial Class ConsulterActiviteEquipe
         '
         'DataGridView_Visiteur
         '
+        Me.DataGridView_Visiteur.AllowUserToAddRows = False
+        Me.DataGridView_Visiteur.AllowUserToDeleteRows = False
+        Me.DataGridView_Visiteur.AllowUserToResizeColumns = False
+        Me.DataGridView_Visiteur.AllowUserToResizeRows = False
         Me.DataGridView_Visiteur.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView_Visiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Visiteur.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column_Nom, Me.Column_Prenom, Me.Column_Actions, Me.Column_MatriculeVisiteur})
@@ -256,11 +272,24 @@ Partial Class ConsulterActiviteEquipe
         Me.Label3.TabIndex = 26
         Me.Label3.Text = "Liste des visiteurs"
         '
+        'Button_CR
+        '
+        Me.Button_CR.BackColor = System.Drawing.Color.SkyBlue
+        Me.Button_CR.ForeColor = System.Drawing.Color.White
+        Me.Button_CR.Location = New System.Drawing.Point(20, 20)
+        Me.Button_CR.Name = "Button_CR"
+        Me.Button_CR.Size = New System.Drawing.Size(96, 47)
+        Me.Button_CR.TabIndex = 29
+        Me.Button_CR.Text = "Saisir un Compte-Rendu"
+        Me.Button_CR.UseVisualStyleBackColor = False
+        '
         'ConsulterActiviteEquipe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.AliceBlue
         Me.ClientSize = New System.Drawing.Size(1349, 609)
+        Me.Controls.Add(Me.Button_CR)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
@@ -304,4 +333,5 @@ Partial Class ConsulterActiviteEquipe
     Friend WithEvents Column_Prenom As DataGridViewTextBoxColumn
     Friend WithEvents Column_Actions As DataGridViewButtonColumn
     Friend WithEvents Column_MatriculeVisiteur As DataGridViewTextBoxColumn
+    Friend WithEvents Button_CR As Button
 End Class

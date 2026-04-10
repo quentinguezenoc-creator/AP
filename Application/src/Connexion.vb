@@ -1,7 +1,7 @@
 ﻿Imports System.Data.Common
+Imports System.Drawing.Printing
 
 Public Class Connexion
-    Dim myConnection As New Odbc.OdbcConnection
     Dim myCommandUtil As New Odbc.OdbcCommand
     Dim myCommandRole As New Odbc.OdbcCommand
     Dim myCommandV As New Odbc.OdbcCommand
@@ -13,9 +13,9 @@ Public Class Connexion
     Private Sub Connexion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MyBase.Text = "Connexion"
         Button_Connexion.Enabled = False
-        myConnection.ConnectionString = GlobalData.ConnexionString ' Chaine de connexion à la base de données
+        GlobalData.myConnection.ConnectionString = GlobalData.ConnexionString ' Chaine de connexion à la base de données
         Try
-            myConnection.Open() ' Connexion à la base de données
+            GlobalData.myConnection.Open() ' Connexion à la base de données
         Catch ex As Exception
             MessageBox.Show("Erreur lors de la connexion à la base de données : " & ex.Message)
         End Try
@@ -25,7 +25,7 @@ Public Class Connexion
         Try
             ' Requête qui récupère le nom et le prenom de l'utilisateur dans le base de données
             Dim queryMat As String = "SELECT nom, prenom FROM utilisateur WHERE matricule = :matricule AND motdepasse = :mdp;"
-            myCommandUtil.Connection = myConnection
+            myCommandUtil.Connection = GlobalData.myConnection
             myCommandUtil.CommandText = queryMat
             myCommandUtil.Parameters.Clear()
             myCommandUtil.Parameters.AddWithValue(":matricule", TextBox_Login.Text) ' Définition de :matricule ici (Text_Login.Text est utilisé en tant que chaîne de caractère)
@@ -37,13 +37,15 @@ Public Class Connexion
                 GlobalData.MatriculeUtilisateurConnecte = TextBox_Login.Text
                 ' Requête qui récupère le rôle de l'utilisateur grâce à la fonction stockée getRole()
                 Dim queryRole As String = "SELECT getRole(:matricule) AS role FROM dual;"
-                myCommandRole.Connection = myConnection
+                myCommandRole.Connection = GlobalData.myConnection
                 myCommandRole.CommandText = queryRole
                 myCommandRole.Parameters.Clear()
                 myCommandRole.Parameters.AddWithValue(":matricule", GlobalData.MatriculeUtilisateurConnecte)
                 myReaderRole = myCommandRole.ExecuteReader()
 
                 If myReaderRole.Read() Then
+                    GlobalData.PrenomUtilisateurConnecte = myReaderUtil.GetString(1)
+                    GlobalData.NomUtilisateurConnecte = myReaderUtil.GetString(0)
                     If myReaderRole.GetString(0) = "Visiteur" Then
                         ' OUVERTURE DE LA FENETRE VISITEUR
                         GlobalData.RoleUtilisateurConnecte = "Visiteur"
