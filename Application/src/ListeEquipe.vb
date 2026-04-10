@@ -49,6 +49,8 @@ Public Class ListeEquipe
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_Delegue.CellContentClick
+        ' Empêche clic sur entête ou zone vide
+        If e.RowIndex < 0 Then Exit Sub
         ' Ouvre la fenêtre de consultation d'activité d'équipe
         Dim f As New ConsulterActiviteEquipe()
         f.MatriculeDelegue = DataGridView_Delegue.Rows(e.RowIndex).Cells("Column_MatriculeDelegue").Value.ToString()

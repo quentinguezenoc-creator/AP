@@ -10,6 +10,7 @@ Public Class GestionCompte
     Dim mode As String = "C" ' Variable pour différencier les modes de création et de modification
     Dim idCompteRendu As Integer ' Variable pour stocker l'id du compte-rendu en cours de modification
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ButtonValider.Enabled = False
         LoadCompteRendu()
         LoadProduits()
         LoadPraticiens()
@@ -18,10 +19,12 @@ Public Class GestionCompte
 
     ' Méthode qui charge la liste des comptes-rendus du visiteur
     Private Sub LoadCompteRendu()
+        DataGridView_CR.Rows.Clear()
         Dim query As String = "SELECT visite.id, praticien.nom, visite.datevisite
                                FROM visite, praticien
                                WHERE visite.idpraticien = praticien.id
-                               AND visite.idutilisateur = :matricule ;"
+                               AND visite.idutilisateur = :matricule
+                               ORDER BY visite.datevisite DESC;"
         myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
@@ -44,11 +47,11 @@ Public Class GestionCompte
         myCommand.Parameters.Clear()
         myReader = myCommand.ExecuteReader()
         Dim produits As New DataTable()
-        produits.Columns.Add("Id", GetType(Integer))
+        produits.Columns.Add("Id", GetType(String))
         produits.Columns.Add("Libelle", GetType(String))
         ' Boucle de lecture des résultats de la requête
         While myReader.Read()
-            produits.Rows.Add(myReader.GetInt32(0), myReader.GetString(1))
+            produits.Rows.Add(myReader.GetString(0), myReader.GetString(1))
         End While
         myReader.Close()
         ' Récupère la colonne des produits pour remplir la ComboBox
@@ -70,6 +73,7 @@ Public Class GestionCompte
         Dim praticiens As New DataTable()
         praticiens.Columns.Add("Id", GetType(Integer))
         praticiens.Columns.Add("Nom", GetType(String))
+        praticiens.Rows.Add(0, "Sélectionner un praticien") ' Ajout d'une option par défaut
         ' Boucle de lecture des résultats de la requête
         While myReader.Read()
             praticiens.Rows.Add(myReader.GetString(0), myReader.GetString(1))
@@ -91,14 +95,15 @@ Public Class GestionCompte
         Dim motifs As New DataTable()
         motifs.Columns.Add("Id", GetType(Integer))
         motifs.Columns.Add("Nom", GetType(String))
+        motifs.Rows.Add(0, "Sélectionnez un motif") ' Ajout d'une option par défaut pour inciter l'utilisateur à faire un choix
         ' Boucle de lecture des résultats de la requête
         While myReader.Read()
             motifs.Rows.Add(myReader.GetString(0), myReader.GetString(1))
         End While
         myReader.Close()
-        ComboBoxMotif.DataSource = motifs
-        ComboBoxMotif.DisplayMember = "Nom"
-        ComboBoxMotif.ValueMember = "Id"
+        ComboBox_Motif.DataSource = motifs
+        ComboBox_Motif.DisplayMember = "Nom"
+        ComboBox_Motif.ValueMember = "Id"
     End Sub
 
     Private Sub ButtonValider_Click(sender As Object, e As EventArgs) Handles ButtonValider.Click
@@ -114,7 +119,7 @@ Public Class GestionCompte
                 myCommand.Parameters.Clear()
                 myCommand.Parameters.Add(":idPraticien", OdbcType.Int).Value = Convert.ToInt32(ComboBox_Praticien.SelectedValue)
                 myCommand.Parameters.Add(":matricule", OdbcType.VarChar).Value = GlobalData.MatriculeUtilisateurConnecte.ToString()
-                myCommand.Parameters.Add(":idMotif", OdbcType.Int).Value = Convert.ToInt32(ComboBoxMotif.SelectedValue)
+                myCommand.Parameters.Add(":idMotif", OdbcType.Int).Value = Convert.ToInt32(ComboBox_Motif.SelectedValue)
                 myCommand.Parameters.Add(":dateVisite", OdbcType.Date).Value = DateTimeVisite.Value
                 myCommand.Parameters.Add(":bilan", OdbcType.VarChar).Value = TextBox_Bilan.Text
                 myCommand.ExecuteNonQuery()
@@ -153,7 +158,7 @@ Public Class GestionCompte
                 myCommand.Parameters.Clear()
                 myCommand.Parameters.Add(":idPraticien", OdbcType.Int).Value = Convert.ToInt32(ComboBox_Praticien.SelectedValue)
                 myCommand.Parameters.Add(":matricule", OdbcType.VarChar).Value = GlobalData.MatriculeUtilisateurConnecte.ToString()
-                myCommand.Parameters.Add(":idMotif", OdbcType.Int).Value = Convert.ToInt32(ComboBoxMotif.SelectedValue)
+                myCommand.Parameters.Add(":idMotif", OdbcType.Int).Value = Convert.ToInt32(ComboBox_Motif.SelectedValue)
                 myCommand.Parameters.Add(":dateVisite", OdbcType.Date).Value = DateTimeVisite.Value
                 myCommand.Parameters.Add(":bilan", OdbcType.VarChar).Value = TextBox_Bilan.Text
                 myCommand.Parameters.Add(":id", OdbcType.Int).Value = idCompteRendu
@@ -184,13 +189,13 @@ Public Class GestionCompte
 
                 LoadCompteRendu() ' Recharge la liste des comptes-rendus pour refléter les modifications
             End If
-            transaction.Commit()
             ResetForm()
             mode = "C"
             idCompteRendu = 0
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
         End Try
+        transaction.Commit()
     End Sub
     ' Méthode qui permet de gérer la modification d'un compte-rendu lors du clic sur le bouton "Modifier" dans le DataGridView
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_CR.CellContentClick
@@ -210,14 +215,14 @@ Public Class GestionCompte
 
             If myReader.Read() Then
                 ComboBox_Praticien.SelectedValue = myReader.GetInt32(0)
-                ComboBoxMotif.SelectedValue = myReader.GetInt32(1)
+                ComboBox_Motif.SelectedValue = myReader.GetInt32(1)
                 DateTimeVisite.Value = myReader.GetDateTime(2)
                 TextBox_Bilan.Text = myReader.GetString(3)
             End If
 
             myReader.Close()
 
-            Dim queryEchantillon As String = "SELECT codeproduit, quantite
+            Dim queryEchantillon As String = "SELECT echantillon.codeproduit, echantillon.quantite
                                               FROM echantillon
                                               WHERE idvisite = :idCompteRendu"
             myCommandProduits.Connection = GlobalData.myConnection
@@ -232,7 +237,7 @@ Public Class GestionCompte
             While myReaderProduits.Read()
                 Dim rowIndex As Integer = DataGridView_Produits.Rows.Add()
                 ' Sélection de la valeur dans la ComboBox (IMPORTANT)
-                DataGridView_Produits.Rows(rowIndex).Cells("Column_Produit").Value = myReaderProduits.GetInt32(0)
+                DataGridView_Produits.Rows(rowIndex).Cells("Column_Produit").Value = myReaderProduits.GetString(0)
                 ' Quantité
                 DataGridView_Produits.Rows(rowIndex).Cells("Column_Echantillon").Value = myReaderProduits.GetInt32(1)
             End While
@@ -252,7 +257,7 @@ Public Class GestionCompte
     Private Sub ResetForm()
         ComboBox_Praticien.SelectedIndex = 0
         DateTimeVisite.Value = DateTime.Now
-        ComboBoxMotif.SelectedIndex = 0
+        ComboBox_Motif.SelectedIndex = 0
         TextBox_Bilan.Clear()
         DataGridView_Produits.Rows.Clear()
     End Sub
@@ -260,4 +265,29 @@ Public Class GestionCompte
     Private Sub ButtonEffacer_Click(sender As Object, e As EventArgs) Handles ButtonEffacer.Click
         ResetForm()
     End Sub
+
+    Private Sub CheckFormulaireComplet() Handles ComboBox_Praticien.SelectedIndexChanged, ComboBox_Motif.SelectedIndexChanged, TextBox_Bilan.TextChanged, DataGridView_Produits.CellValueChanged, DataGridView_Produits.RowsRemoved
+        Dim nbProduits As Integer = DataGridView_Produits.Rows.Cast(Of DataGridViewRow)().Count(Function(r) Not r.IsNewRow)
+        Dim dgvValide As Boolean = DataGridViewComplet(DataGridView_Produits)
+        If ComboBox_Praticien.SelectedIndex <> 0 AndAlso ComboBox_Motif.SelectedIndex <> 0 AndAlso Not String.IsNullOrWhiteSpace(TextBox_Bilan.Text) AndAlso nbProduits > 0 AndAlso dgvValide Then
+            ButtonValider.Enabled = True
+        Else
+            ButtonValider.Enabled = False
+        End If
+    End Sub
+
+    ' Fonction qui permet de vérifier que tous les champs du DataGridView sont remplis (pas de valeur nulle ou vide) pour activer le bouton de validation
+    Private Function DataGridViewComplet(dgv As DataGridView) As Boolean
+        For Each row As DataGridViewRow In dgv.Rows
+            If row.IsNewRow Then Continue For
+            If String.IsNullOrWhiteSpace(row.Cells("Column_Produit").FormattedValue.ToString()) Then
+                Return False
+            End If
+            Dim nbEchantillons As Integer
+            If row.Cells("Column_Echantillon").Value Is Nothing OrElse Not Integer.TryParse(row.Cells("Column_Echantillon").Value.ToString(), nbEchantillons) Then
+                Return False
+            End If
+        Next
+        Return True
+    End Function
 End Class

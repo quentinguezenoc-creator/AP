@@ -29,7 +29,7 @@ Partial Class GestionCompte
         Me.Bilan = New System.Windows.Forms.Label()
         Me.ButtonValider = New System.Windows.Forms.Button()
         Me.DateTimeVisite = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBoxMotif = New System.Windows.Forms.ComboBox()
+        Me.ComboBox_Motif = New System.Windows.Forms.ComboBox()
         Me.ComboBox_Praticien = New System.Windows.Forms.ComboBox()
         Me.TextBox_Bilan = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -112,18 +112,20 @@ Partial Class GestionCompte
         Me.DateTimeVisite.Size = New System.Drawing.Size(178, 20)
         Me.DateTimeVisite.TabIndex = 9
         '
-        'ComboBoxMotif
+        'ComboBox_Motif
         '
-        Me.ComboBoxMotif.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ComboBoxMotif.FormattingEnabled = True
-        Me.ComboBoxMotif.Location = New System.Drawing.Point(123, 238)
-        Me.ComboBoxMotif.Name = "ComboBoxMotif"
-        Me.ComboBoxMotif.Size = New System.Drawing.Size(187, 21)
-        Me.ComboBoxMotif.TabIndex = 10
+        Me.ComboBox_Motif.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ComboBox_Motif.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_Motif.FormattingEnabled = True
+        Me.ComboBox_Motif.Location = New System.Drawing.Point(123, 238)
+        Me.ComboBox_Motif.Name = "ComboBox_Motif"
+        Me.ComboBox_Motif.Size = New System.Drawing.Size(187, 21)
+        Me.ComboBox_Motif.TabIndex = 10
         '
         'ComboBox_Praticien
         '
         Me.ComboBox_Praticien.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ComboBox_Praticien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_Praticien.FormattingEnabled = True
         Me.ComboBox_Praticien.Location = New System.Drawing.Point(81, 63)
         Me.ComboBox_Praticien.Name = "ComboBox_Praticien"
@@ -263,7 +265,7 @@ Partial Class GestionCompte
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.TextBox_Bilan)
         Me.Panel2.Controls.Add(Me.ComboBox_Praticien)
-        Me.Panel2.Controls.Add(Me.ComboBoxMotif)
+        Me.Panel2.Controls.Add(Me.ComboBox_Motif)
         Me.Panel2.Controls.Add(Me.DateTimeVisite)
         Me.Panel2.Controls.Add(Me.ButtonValider)
         Me.Panel2.Controls.Add(Me.Bilan)
@@ -343,7 +345,7 @@ Partial Class GestionCompte
     Friend WithEvents Bilan As Label
     Friend WithEvents ButtonValider As Button
     Friend WithEvents DateTimeVisite As DateTimePicker
-    Friend WithEvents ComboBoxMotif As ComboBox
+    Friend WithEvents ComboBox_Motif As ComboBox
     Friend WithEvents ComboBox_Praticien As ComboBox
     Friend WithEvents TextBox_Bilan As TextBox
     Friend WithEvents Label1 As Label

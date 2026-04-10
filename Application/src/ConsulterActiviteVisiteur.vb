@@ -9,10 +9,10 @@ Public Class ConsulterActiviteVisiteur
         Nb_Visite.Visible = False
         DataGridView_Praticien.Visible = False
         DataGridView_Motif.Visible = False
-        ChargerCompteRendu()
         DataGridView_CR.ReadOnly = True
         DataGridView_Motif.ReadOnly = True
         DataGridView_Praticien.ReadOnly = True
+        ChargerCompteRendu()
     End Sub
 
     Private Sub Button_Consulter_Click(sender As Object, e As EventArgs) Handles Button_Consulter.Click
@@ -26,6 +26,8 @@ Public Class ConsulterActiviteVisiteur
     End Sub
 
     Private Sub DataGridView_CR_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_CR.CellContentClick
+        ' Empêche clic sur entête ou zone vide
+        If e.RowIndex < 0 Then Exit Sub
         Dim f As New ConsulterCompteRendu
         f.Text = "Compte-rendu de la visite du " & DataGridView_CR.Rows(e.RowIndex).Cells("Column_Date").Value.ToString & " chez le praticien " & DataGridView_CR.Rows(e.RowIndex).Cells("Column_PraticienCR").Value.ToString()
         f.numeroCR = DataGridView_CR.Rows(e.RowIndex).Cells("Column_Id").Value
@@ -37,7 +39,8 @@ Public Class ConsulterActiviteVisiteur
         Dim query As String = "SELECT visite.id, visite.datevisite, praticien.nom
                                FROM praticien, visite
                                WHERE praticien.id = visite.idpraticien
-                               AND idutilisateur = :matricule;"
+                               AND idutilisateur = :matricule
+                               ORDER BY visite.datevisite DESC;"
         myCommand.Connection = GlobalData.myConnection
         myCommand.CommandText = query
         myCommand.Parameters.Clear()
